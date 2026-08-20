@@ -1,0 +1,53 @@
+# Dependencies
+node_modules/
+*/node_modules/
+package-lock.json.bak
+
+# Python Virtual Environments & Cache
+venv/
+*/venv/
+ENV/
+env/
+__pycache__/
+*/__pycache__/
+*/*/__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Android Build & Logs
+.gradle/
+*/.gradle/
+build/
+*/build/
+*/*/build/
+*.iml
+.idea/
+*/.idea/
+local.properties
+*/local.properties
+.externalNativeBuild/
+.cxx/
+captures/
+hs_err_*.log
+replay_*.log
+logcat_*.txt
+*.log
+
+# Environment & Secrets (Keep .env.example)
+.env
+*/.env
+.env.local
+.env.*.local
+!.env.example
+!*/.env.example
+
+# Web Bundles & Dist
+dist/
+*/dist/
+dist-ssr/
+.DS_Store
+Thumbs.db
