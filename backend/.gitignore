@@ -1,0 +1,42 @@
+# Python Virtual Environment
+venv/
+ENV/
+env/
+
+# Environment Variables
+.env
+.env.local
+.env.*.local
+
+# Python Bytecode & Cache
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# Testing & Coverage
+.pytest_cache/
+.mypy_cache/
+.coverage
+htmlcov/
+coverage.xml
+
+# IDEs and Editors
+.idea/
+.vscode/
+*.swp
+*.swo
+.DS_Store
+
+# Media Uploads & Temporary Storage
+app/media/*
+!app/media/.gitkeep
+
+# Logs
+*.log
+logs/
+
+# Build & Package artifacts
+build/
+dist/
+*.egg-info/

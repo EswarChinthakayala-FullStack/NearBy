@@ -1,0 +1,31 @@
+# Multi-stage Python 3.11 Dockerfile for Local Tourism Guide Backend
+FROM python:3.11-slim as builder
+
+WORKDIR /app
+
+ENV PYTHONDONTWRITEBYTECODE=1 \
+    PYTHONUNBUFFERED=1
+
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    gcc \
+    libmariadb-dev \
+    pkg-config \
+    && rm -rf /var/lib/apt/lists/*
+
+COPY requirements.txt .
+RUN pip install --no-cache-dir --user -r requirements.txt
+
+FROM python:3.11-slim as runner
+
+WORKDIR /app
+
+ENV PATH=/root/.local/bin:$PATH \
+    PYTHONDONTWRITEBYTECODE=1 \
+    PYTHONUNBUFFERED=1
+
+COPY --from=builder /root/.local /root/.local
+COPY . .
+
+EXPOSE 8000
+
+CMD ["gunicorn", "app.main:app", "-c", "gunicorn.conf.py"]
