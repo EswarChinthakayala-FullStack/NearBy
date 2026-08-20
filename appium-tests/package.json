@@ -1,0 +1,31 @@
+{
+  "name": "nearby-appium-mobile-e2e-tests",
+  "version": "1.0.0",
+  "description": "Enterprise Appium Mobile E2E Automation Suite for Nearby Android App Frontend",
+  "main": "tests/app-e2e-tests.js",
+  "type": "commonjs",
+  "scripts": {
+    "test": "node tests/app-e2e-tests.js",
+    "test:login": "node tests/app-e2e-tests.js --grep=login",
+    "generate:report": "node generate-excel-report.js"
+  },
+  "keywords": [
+    "appium",
+    "webdriverio",
+    "android",
+    "uiautomator2",
+    "mobile-automation",
+    "e2e-testing",
+    "excel-reporting"
+  ],
+  "author": "Nearby QA Mobile Automation Engineering Team",
+  "license": "MIT",
+  "dependencies": {
+    "exceljs": "^4.4.0",
+    "webdriverio": "^8.38.0"
+  },
+  "devDependencies": {
+    "appium": "^2.11.3",
+    "appium-uiautomator2-driver": "^3.7.8"
+  }
+}
