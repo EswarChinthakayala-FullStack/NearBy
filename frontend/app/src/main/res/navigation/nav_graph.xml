@@ -1,0 +1,403 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/splashFragment">
+
+    <!-- Splash Fragment -->
+    <fragment
+        android:id="@+id/splashFragment"
+        android:name="com.example.nearby.presentation.splash.SplashFragment"
+        android:label="Splash">
+        <action
+            android:id="@+id/action_splash_to_onboarding"
+            app:destination="@id/onboardingFragment"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out"
+            app:popUpTo="@id/splashFragment"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_splash_to_login"
+            app:destination="@id/loginFragment"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out"
+            app:popUpTo="@id/splashFragment"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_splash_to_home"
+            app:destination="@id/homeFragment"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out"
+            app:popUpTo="@id/splashFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+
+    <!-- Onboarding Fragment -->
+    <fragment
+        android:id="@+id/onboardingFragment"
+        android:name="com.example.nearby.presentation.onboarding.OnboardingFragment"
+        android:label="Onboarding">
+        <action
+            android:id="@+id/action_onboarding_to_login"
+            app:destination="@id/loginFragment"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out"
+            app:popUpTo="@id/onboardingFragment"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_onboarding_to_home"
+            app:destination="@id/homeFragment"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out"
+            app:popUpTo="@id/onboardingFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+
+    <!-- Login Fragment -->
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.example.nearby.presentation.auth.login.LoginFragment"
+        android:label="Login">
+        <action
+            android:id="@+id/action_login_to_register"
+            app:destination="@id/registerFragment"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out" />
+        <action
+            android:id="@+id/action_login_to_home"
+            app:destination="@id/homeFragment"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out"
+            app:popUpTo="@id/loginFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+
+    <!-- Register Fragment -->
+    <fragment
+        android:id="@+id/registerFragment"
+        android:name="com.example.nearby.presentation.auth.register.RegisterFragment"
+        android:label="Register">
+        <action
+            android:id="@+id/action_register_to_home"
+            app:destination="@id/homeFragment"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out"
+            app:popUpTo="@id/registerFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+
+    <!-- Home Fragment -->
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.example.nearby.presentation.home.HomeFragment"
+        android:label="Home">
+        <action
+            android:id="@+id/action_home_to_explore"
+            app:destination="@id/exploreFragment"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out" />
+        <action
+            android:id="@+id/action_home_to_ai_nearby"
+            app:destination="@id/aiNearbyFragment"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out" />
+        <action
+            android:id="@+id/action_home_to_detail"
+            app:destination="@id/placeDetailFragment"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out" />
+        <action
+            android:id="@+id/action_home_to_trending"
+            app:destination="@id/trendingFragment"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out" />
+        <action
+            android:id="@+id/action_home_to_nearbyAttractions"
+            app:destination="@id/nearbyAttractionsFragment"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out" />
+        <action
+            android:id="@+id/action_home_to_recommended"
+            app:destination="@id/recommendedFragment"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out" />
+        <action
+            android:id="@+id/action_home_to_popular"
+            app:destination="@id/popularFragment"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out" />
+    </fragment>
+
+    <!-- Explore Fragment -->
+    <fragment
+        android:id="@+id/exploreFragment"
+        android:name="com.example.nearby.presentation.explore.ExploreFragment"
+        android:label="Explore">
+        <action
+            android:id="@+id/action_explore_to_home"
+            app:destination="@id/homeFragment"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out"
+            app:popUpTo="@id/homeFragment" />
+        <action
+            android:id="@+id/action_explore_to_ai_nearby"
+            app:destination="@id/aiNearbyFragment"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out" />
+    </fragment>
+
+    <!-- AI Nearby Fragment -->
+    <fragment
+        android:id="@+id/aiNearbyFragment"
+        android:name="com.example.nearby.presentation.ainearby.AiNearbyFragment"
+        android:label="AI Nearby Search" />
+
+    <!-- Dedicated Navigation Fragment -->
+    <fragment
+        android:id="@+id/navigationFragment"
+        android:name="com.example.nearby.presentation.navigation.NavigationFragment"
+        android:label="Navigation" />
+
+    <!-- Place Detail Fragment -->
+    <fragment
+        android:id="@+id/placeDetailFragment"
+        android:name="com.example.nearby.presentation.detail.PlaceDetailFragment"
+        android:label="Place Details" />
+
+    <!-- Fullscreen Gallery Fragment -->
+    <fragment
+        android:id="@+id/galleryFragment"
+        android:name="com.example.nearby.presentation.gallery.GalleryFragment"
+        android:label="Place Gallery" />
+
+    <!-- AI Itinerary Main Fragment -->
+    <fragment
+        android:id="@+id/itineraryFragment"
+        android:name="com.example.nearby.presentation.itinerary.ItineraryFragment"
+        android:label="AI Itinerary" />
+
+    <!-- AI Itinerary Conversational Chat Fragment -->
+    <fragment
+        android:id="@+id/aiItineraryChatFragment"
+        android:name="com.example.nearby.presentation.itinerary.chat.AiItineraryChatFragment"
+        android:label="AI Travel Assistant" />
+
+    <!-- AI Itinerary Detail Fragment -->
+    <fragment
+        android:id="@+id/itineraryDetailFragment"
+        android:name="com.example.nearby.presentation.itinerary.details.ItineraryDetailFragment"
+        android:label="Itinerary Details" />
+
+    <!-- Favorites Fragment -->
+    <fragment
+        android:id="@+id/favoritesFragment"
+        android:name="com.example.nearby.presentation.favorites.FavoritesFragment"
+        android:label="Saved Destinations" />
+
+    <!-- Profile Fragment -->
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.example.nearby.presentation.profile.ProfileFragment"
+        android:label="User Profile">
+        <action
+            android:id="@+id/action_profile_to_reviews"
+            app:destination="@id/reviewsFragment"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out" />
+        <action
+            android:id="@+id/action_profile_to_settings"
+            app:destination="@id/settingsFragment"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out" />
+        <action
+            android:id="@+id/action_profile_to_favorites"
+            app:destination="@id/favoritesFragment"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out" />
+        <action
+            android:id="@+id/action_profile_to_myTrips"
+            app:destination="@id/myTripsFragment"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out" />
+        <action
+            android:id="@+id/action_profile_to_editProfile"
+            app:destination="@id/editProfileFragment"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out" />
+        <action
+            android:id="@+id/action_profile_to_helpSupport"
+            app:destination="@id/helpSupportFragment"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out" />
+    </fragment>
+
+    <!-- Settings Fragment -->
+    <fragment
+        android:id="@+id/settingsFragment"
+        android:name="com.example.nearby.presentation.profile.settings.SettingsFragment"
+        android:label="App Settings">
+        <action
+            android:id="@+id/action_settings_to_reviews"
+            app:destination="@id/reviewsFragment"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out" />
+        <action
+            android:id="@+id/action_settings_to_myTrips"
+            app:destination="@id/myTripsFragment"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out" />
+        <action
+            android:id="@+id/action_settings_to_appearance"
+            app:destination="@id/appearanceFragment"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out" />
+        <action
+            android:id="@+id/action_settings_to_notifications"
+            app:destination="@id/notificationSettingsFragment"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out" />
+        <action
+            android:id="@+id/action_settings_to_privacy"
+            app:destination="@id/privacyPolicyFragment"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out" />
+        <action
+            android:id="@+id/action_settings_to_terms"
+            app:destination="@id/termsConditionsFragment"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out" />
+        <action
+            android:id="@+id/action_settings_to_licenses"
+            app:destination="@id/openSourceLicensesFragment"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out" />
+        <action
+            android:id="@+id/action_settings_to_security"
+            app:destination="@id/securitySettingsFragment"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out" />
+        <action
+            android:id="@+id/action_settings_to_support"
+            app:destination="@id/helpSupportFragment"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out" />
+        <action
+            android:id="@+id/action_settings_to_about"
+            app:destination="@id/aboutFragment"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out" />
+        <action
+            android:id="@+id/action_settings_to_editProfile"
+            app:destination="@id/editProfileFragment"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out" />
+    </fragment>
+
+    <!-- User Reviews Fragment -->
+    <fragment
+        android:id="@+id/reviewsFragment"
+        android:name="com.example.nearby.presentation.profile.reviews.ReviewsFragment"
+        android:label="My Reviews">
+        <action
+            android:id="@+id/action_reviews_to_detail"
+            app:destination="@id/placeDetailFragment"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out" />
+    </fragment>
+
+    <!-- My Trips Fragment -->
+    <fragment
+        android:id="@+id/myTripsFragment"
+        android:name="com.example.nearby.presentation.profile.mytrips.MyTripsFragment"
+        android:label="My Trips">
+        <action
+            android:id="@+id/action_myTrips_to_detail"
+            app:destination="@id/itineraryDetailFragment"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out" />
+        <action
+            android:id="@+id/action_myTrips_to_chat"
+            app:destination="@id/aiItineraryChatFragment"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out" />
+    </fragment>
+
+    <!-- Edit Profile Fragment -->
+    <fragment
+        android:id="@+id/editProfileFragment"
+        android:name="com.example.nearby.presentation.profile.editprofile.EditProfileFragment"
+        android:label="Edit Profile" />
+
+    <!-- Appearance Fragment -->
+    <fragment
+        android:id="@+id/appearanceFragment"
+        android:name="com.example.nearby.presentation.profile.settings.appearance.AppearanceFragment"
+        android:label="Appearance" />
+
+    <!-- Notification Settings Fragment -->
+    <fragment
+        android:id="@+id/notificationSettingsFragment"
+        android:name="com.example.nearby.presentation.profile.settings.notifications.NotificationSettingsFragment"
+        android:label="Notifications" />
+
+    <!-- Privacy Policy Fragment -->
+    <fragment
+        android:id="@+id/privacyPolicyFragment"
+        android:name="com.example.nearby.presentation.profile.settings.privacy.PrivacyPolicyFragment"
+        android:label="Privacy Policy" />
+
+    <!-- Terms Conditions Fragment -->
+    <fragment
+        android:id="@+id/termsConditionsFragment"
+        android:name="com.example.nearby.presentation.profile.settings.terms.TermsConditionsFragment"
+        android:label="Terms &amp; Conditions" />
+
+    <!-- Open Source Licenses Fragment -->
+    <fragment
+        android:id="@+id/openSourceLicensesFragment"
+        android:name="com.example.nearby.presentation.profile.settings.licenses.OpenSourceLicensesFragment"
+        android:label="Open Source Licenses" />
+
+    <!-- Security Settings Fragment -->
+    <fragment
+        android:id="@+id/securitySettingsFragment"
+        android:name="com.example.nearby.presentation.profile.settings.security.SecuritySettingsFragment"
+        android:label="Security Settings" />
+
+    <!-- Help Support Fragment -->
+    <fragment
+        android:id="@+id/helpSupportFragment"
+        android:name="com.example.nearby.presentation.profile.settings.support.HelpSupportFragment"
+        android:label="Help &amp; Support" />
+
+    <!-- About Fragment -->
+    <fragment
+        android:id="@+id/aboutFragment"
+        android:name="com.example.nearby.presentation.profile.settings.about.AboutFragment"
+        android:label="About Nearby" />
+
+    <!-- Trending Fragment -->
+    <fragment
+        android:id="@+id/trendingFragment"
+        android:name="com.example.nearby.presentation.trending.TrendingFragment"
+        android:label="Trending Destinations" />
+
+    <!-- Nearby Attractions Fragment -->
+    <fragment
+        android:id="@+id/nearbyAttractionsFragment"
+        android:name="com.example.nearby.presentation.nearby.NearbyAttractionsFragment"
+        android:label="Nearby Attractions" />
+
+    <!-- Recommended Fragment -->
+    <fragment
+        android:id="@+id/recommendedFragment"
+        android:name="com.example.nearby.presentation.recommended.RecommendedFragment"
+        android:label="Recommended For You" />
+
+    <!-- Popular Fragment -->
+    <fragment
+        android:id="@+id/popularFragment"
+        android:name="com.example.nearby.presentation.popular.PopularFragment"
+        android:label="Popular Destinations" />
+
+</navigation>

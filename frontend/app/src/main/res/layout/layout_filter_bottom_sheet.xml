@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bg_solid_drawer_panel"
+    android:elevation="@dimen/shadow_large"
+    android:orientation="vertical"
+    android:paddingHorizontal="@dimen/space_24"
+    android:paddingTop="@dimen/space_12"
+    android:paddingBottom="@dimen/space_24">
+
+    <!-- DRAG HANDLE BAR -->
+    <View
+        android:layout_width="40dp"
+        android:layout_height="4dp"
+        android:layout_gravity="center_horizontal"
+        android:background="@color/card_border" />
+
+    <!-- TITLE HEADER & RESET BUTTON -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/space_16"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <TextView
+            style="@style/Typography.HeadlineMedium"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Filter Destinations"
+            android:textColor="@color/text_primary" />
+
+        <TextView
+            android:id="@+id/btn_reset_filters"
+            style="@style/Typography.Button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Reset"
+            android:textColor="@color/emerald_500" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginVertical="@dimen/space_12"
+        android:background="@color/card_border" />
+
+    <!-- OPEN NOW TOGGLE -->
+    <CheckBox
+        android:id="@+id/cb_filter_open_now"
+        style="@style/Typography.BodyMedium"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:buttonTint="@color/emerald_500"
+        android:text="Open Now Only"
+        android:textColor="@color/text_primary" />
+
+    <!-- DISTANCE OPTION -->
+    <TextView
+        style="@style/Typography.Caption"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/space_16"
+        android:text="MAXIMUM DISTANCE"
+        android:textColor="@color/text_secondary" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/space_8"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/btn_dist_5km"
+            style="@style/Typography.BodySmall"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_marginEnd="4dp"
+            android:layout_weight="1"
+            android:background="@drawable/bg_skip_pill"
+            android:gravity="center"
+            android:text="&lt; 5 km"
+            android:textColor="@color/text_primary" />
+
+        <TextView
+            android:id="@+id/btn_dist_10km"
+            style="@style/Typography.BodySmall"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_marginHorizontal="4dp"
+            android:layout_weight="1"
+            android:background="@drawable/bg_button_primary"
+            android:gravity="center"
+            android:text="&lt; 10 km"
+            android:textColor="@color/white" />
+
+        <TextView
+            android:id="@+id/btn_dist_25km"
+            style="@style/Typography.BodySmall"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="4dp"
+            android:layout_weight="1"
+            android:background="@drawable/bg_skip_pill"
+            android:gravity="center"
+            android:text="&lt; 25 km"
+            android:textColor="@color/text_primary" />
+    </LinearLayout>
+
+    <!-- MINIMUM RATING -->
+    <TextView
+        style="@style/Typography.Caption"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/space_16"
+        android:text="MINIMUM RATING"
+        android:textColor="@color/text_secondary" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/space_8"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/btn_rating_any"
+            style="@style/Typography.BodySmall"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_marginEnd="4dp"
+            android:layout_weight="1"
+            android:background="@drawable/bg_skip_pill"
+            android:gravity="center"
+            android:text="Any Rating"
+            android:textColor="@color/text_primary" />
+
+        <TextView
+            android:id="@+id/btn_rating_40"
+            style="@style/Typography.BodySmall"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="4dp"
+            android:layout_weight="1"
+            android:background="@drawable/bg_button_primary"
+            android:gravity="center"
+            android:text="★ 4.0+"
+            android:textColor="@color/white" />
+    </LinearLayout>
+
+    <!-- APPLY FILTERS BUTTON -->
+    <Button
+        android:id="@+id/btn_apply_filters"
+        style="@style/Typography.Button"
+        android:layout_width="match_parent"
+        android:layout_height="52dp"
+        android:layout_marginTop="@dimen/space_24"
+        android:background="@drawable/bg_button_primary"
+        android:text="Apply Filters  →"
+        android:textColor="@color/white" />
+
+</LinearLayout>

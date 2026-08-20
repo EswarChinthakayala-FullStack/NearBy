@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Emerald SaaS Application DayNight Theme (Dark Mode) -->
+    <style name="Theme.Nearby" parent="Theme.AppCompat.DayNight.NoActionBar">
+        <!-- Primary Brand Colors -->
+        <item name="colorPrimary">@color/emerald_500</item>
+        <item name="colorPrimaryDark">@color/emerald_900</item>
+        <item name="colorAccent">@color/emerald_400</item>
+
+        <!-- Window & Background -->
+        <item name="android:windowBackground">@color/bg_primary</item>
+        <item name="android:statusBarColor">@color/bg_primary</item>
+        <item name="android:windowLightStatusBar">false</item>
+        <item name="android:navigationBarColor">@color/bg_primary</item>
+
+        <!-- Disable default Material elevation and action bars -->
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+</resources>

@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<HorizontalScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/transport_mode_scroll_view"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:clipToPadding="false"
+    android:paddingHorizontal="@dimen/space_16"
+    android:scrollbars="none">
+
+    <LinearLayout
+        android:id="@+id/transport_mode_container"
+        android:layout_width="wrap_content"
+        android:layout_height="48dp"
+        android:background="@drawable/bg_glass_panel"
+        android:elevation="@dimen/shadow_medium"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:padding="4dp">
+
+        <!-- Drive Mode Tab -->
+        <LinearLayout
+            android:id="@+id/tab_mode_drive"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginEnd="4dp"
+            android:background="@drawable/bg_button_primary"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:paddingHorizontal="@dimen/space_16">
+
+            <ImageView
+                android:id="@+id/iv_mode_drive"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:contentDescription="Drive"
+                android:src="@drawable/ic_route_drive" />
+
+            <TextView
+                android:id="@+id/tv_mode_drive"
+                style="@style/Typography.BodyMedium"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/space_8"
+                android:text="Drive"
+                android:textColor="@color/white" />
+        </LinearLayout>
+
+        <!-- Bike Mode Tab -->
+        <LinearLayout
+            android:id="@+id/tab_mode_bike"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginHorizontal="4dp"
+            android:background="?attr/selectableItemBackground"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:paddingHorizontal="@dimen/space_16">
+
+            <ImageView
+                android:id="@+id/iv_mode_bike"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:contentDescription="Two Wheeler"
+                android:src="@drawable/ic_route" />
+
+            <TextView
+                android:id="@+id/tv_mode_bike"
+                style="@style/Typography.BodyMedium"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/space_8"
+                android:text="Bike"
+                android:textColor="@color/text_secondary" />
+        </LinearLayout>
+
+        <!-- Cycle Mode Tab -->
+        <LinearLayout
+            android:id="@+id/tab_mode_cycle"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginHorizontal="4dp"
+            android:background="?attr/selectableItemBackground"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:paddingHorizontal="@dimen/space_16">
+
+            <ImageView
+                android:id="@+id/iv_mode_cycle"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:contentDescription="Cycle"
+                android:src="@drawable/ic_route" />
+
+            <TextView
+                android:id="@+id/tv_mode_cycle"
+                style="@style/Typography.BodyMedium"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/space_8"
+                android:text="Cycle"
+                android:textColor="@color/text_secondary" />
+        </LinearLayout>
+
+        <!-- Walk Mode Tab -->
+        <LinearLayout
+            android:id="@+id/tab_mode_walk"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginStart="4dp"
+            android:background="?attr/selectableItemBackground"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:paddingHorizontal="@dimen/space_16">
+
+            <ImageView
+                android:id="@+id/iv_mode_walk"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:contentDescription="Walk"
+                android:src="@drawable/ic_route_walk" />
+
+            <TextView
+                android:id="@+id/tv_mode_walk"
+                style="@style/Typography.BodyMedium"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/space_8"
+                android:text="Walk"
+                android:textColor="@color/text_secondary" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+</HorizontalScrollView>

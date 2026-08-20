@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/main_bottom_nav_container"
+    android:layout_width="match_parent"
+    android:layout_height="56dp"
+    android:layout_marginHorizontal="16dp"
+    android:background="@drawable/bg_glass_panel"
+    android:elevation="12dp"
+    android:gravity="center"
+    android:orientation="horizontal"
+    android:paddingHorizontal="6dp"
+    android:paddingVertical="4dp">
+
+    <!-- Home Tab -->
+    <LinearLayout
+        android:id="@+id/nav_tab_home"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_marginHorizontal="2dp"
+        android:layout_weight="1"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:paddingVertical="4dp">
+
+        <ImageView
+            android:id="@+id/iv_nav_home"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:contentDescription="Home"
+            android:src="@drawable/ic_home" />
+
+        <TextView
+            android:id="@+id/tv_nav_home"
+            style="@style/Typography.Caption"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:text="Home"
+            android:textColor="@color/emerald_500"
+            android:textSize="10.5sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <!-- Explore Tab -->
+    <LinearLayout
+        android:id="@+id/nav_tab_explore"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_marginHorizontal="2dp"
+        android:layout_weight="1"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:paddingVertical="4dp">
+
+        <ImageView
+            android:id="@+id/iv_nav_explore"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:contentDescription="Explore"
+            android:src="@drawable/ic_explore" />
+
+        <TextView
+            android:id="@+id/tv_nav_explore"
+            style="@style/Typography.Caption"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:text="Explore"
+            android:textColor="@color/text_secondary"
+            android:textSize="10.5sp" />
+    </LinearLayout>
+
+    <!-- AI Nearby Tab -->
+    <LinearLayout
+        android:id="@+id/nav_tab_ai_nearby"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_marginHorizontal="2dp"
+        android:layout_weight="1"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:paddingVertical="4dp">
+
+        <ImageView
+            android:id="@+id/iv_nav_ai_nearby"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:contentDescription="AI Nearby"
+            android:src="@drawable/ic_ai_nearby" />
+
+        <TextView
+            android:id="@+id/tv_nav_ai_nearby"
+            style="@style/Typography.Caption"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:text="AI Nearby"
+            android:textColor="@color/text_secondary"
+            android:textSize="10.5sp" />
+    </LinearLayout>
+
+    <!-- AI Itinerary Tab -->
+    <LinearLayout
+        android:id="@+id/nav_tab_saved"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_marginHorizontal="2dp"
+        android:layout_weight="1"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:paddingVertical="4dp">
+
+        <ImageView
+            android:id="@+id/iv_nav_saved"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:contentDescription="AI Itinerary"
+            android:src="@drawable/ic_itinerary" />
+
+        <TextView
+            android:id="@+id/tv_nav_saved"
+            style="@style/Typography.Caption"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:text="Itinerary"
+            android:textColor="@color/text_secondary"
+            android:textSize="10.5sp" />
+    </LinearLayout>
+
+    <!-- Profile Tab -->
+    <LinearLayout
+        android:id="@+id/nav_tab_profile"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_marginHorizontal="2dp"
+        android:layout_weight="1"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:paddingVertical="4dp">
+
+        <ImageView
+            android:id="@+id/iv_nav_profile"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:contentDescription="Profile"
+            android:src="@drawable/ic_profile" />
+
+        <TextView
+            android:id="@+id/tv_nav_profile"
+            style="@style/Typography.Caption"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:text="Profile"
+            android:textColor="@color/text_secondary"
+            android:textSize="10.5sp" />
+    </LinearLayout>
+
+</LinearLayout>

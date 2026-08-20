@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="4dp"
+    android:background="@drawable/bg_glass_panel"
+    android:elevation="@dimen/shadow_small"
+    android:orientation="vertical"
+    android:padding="@dimen/space_8">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="110dp">
+
+        <ImageView
+            android:id="@+id/iv_grid_thumbnail"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/bg_glass_panel"
+            android:contentDescription="Saved Place"
+            android:scaleType="centerCrop"
+            android:src="@drawable/bg_wave_top" />
+
+        <ImageButton
+            android:id="@+id/btn_grid_remove"
+            android:layout_width="28dp"
+            android:layout_height="28dp"
+            android:layout_gravity="top|end"
+            android:layout_margin="6dp"
+            android:background="@drawable/bg_skip_pill"
+            android:contentDescription="Remove"
+            android:src="@drawable/ic_heart_filled"
+            app:tint="@color/status_danger" />
+    </FrameLayout>
+
+    <TextView
+        android:id="@+id/tv_grid_title"
+        style="@style/Typography.BodyMedium"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/space_6"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:textColor="@color/text_primary"
+        tools:text="Qutub Minar" />
+
+    <TextView
+        android:id="@+id/tv_grid_rating"
+        style="@style/Typography.Caption"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="2dp"
+        android:textColor="@color/emerald_500"
+        tools:text="★ 4.0 • Delhi" />
+</LinearLayout>

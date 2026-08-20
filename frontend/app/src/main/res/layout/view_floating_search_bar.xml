@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/search_bar_container"
+    android:layout_width="match_parent"
+    android:layout_height="56dp"
+    android:layout_marginHorizontal="@dimen/space_16"
+    android:background="@drawable/bg_glass_panel"
+    android:elevation="@dimen/shadow_large"
+    android:gravity="center_vertical"
+    android:orientation="horizontal"
+    android:paddingHorizontal="@dimen/space_12">
+
+    <!-- Hamburger Menu Action Pill -->
+    <FrameLayout
+        android:id="@+id/btn_hamburger_container"
+        android:layout_width="38dp"
+        android:layout_height="38dp"
+        android:background="?attr/selectableItemBackgroundBorderless">
+
+        <ImageView
+            android:id="@+id/btn_hamburger"
+            android:layout_width="22dp"
+            android:layout_height="22dp"
+            android:layout_gravity="center"
+            android:contentDescription="Menu"
+            android:src="@drawable/ic_menu" />
+    </FrameLayout>
+
+    <!-- Search Input Area -->
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_marginHorizontal="@dimen/space_8"
+        android:layout_weight="1"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="18dp"
+            android:layout_height="18dp"
+            android:contentDescription="Search Icon"
+            android:src="@drawable/ic_search" />
+
+        <EditText
+            android:id="@+id/et_search_places"
+            style="@style/Typography.BodyLarge"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginStart="@dimen/space_8"
+            android:background="@android:color/transparent"
+            android:gravity="center_vertical"
+            android:hint="Search places, beaches, hotels..."
+            android:imeOptions="actionSearch"
+            android:inputType="text"
+            android:maxLines="1"
+            android:textColor="@color/text_primary"
+            android:textColorHint="@color/text_muted" />
+
+    </LinearLayout>
+
+    <!-- Voice Search Action Button -->
+    <FrameLayout
+        android:id="@+id/btn_voice_container"
+        android:layout_width="38dp"
+        android:layout_height="38dp"
+        android:background="?attr/selectableItemBackgroundBorderless">
+
+        <ImageView
+            android:id="@+id/btn_voice_search"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_gravity="center"
+            android:contentDescription="Voice Search"
+            android:src="@drawable/ic_voice" />
+    </FrameLayout>
+
+    <!-- Profile Avatar Badge with Emerald Active Ring -->
+    <FrameLayout
+        android:layout_width="38dp"
+        android:layout_height="38dp"
+        android:layout_marginStart="@dimen/space_4">
+
+        <ImageView
+            android:id="@+id/iv_profile_avatar"
+            android:layout_width="34dp"
+            android:layout_height="34dp"
+            android:layout_gravity="center"
+            android:background="@drawable/bg_skip_pill"
+            android:contentDescription="Profile"
+            android:padding="6dp"
+            android:scaleType="centerInside"
+            android:src="@drawable/ic_profile" />
+    </FrameLayout>
+
+</LinearLayout>

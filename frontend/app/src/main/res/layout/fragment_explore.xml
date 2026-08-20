@@ -1,0 +1,645 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/explore_root_container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_screen_gradient">
+
+    <!-- BACKGROUND GRAPHICS -->
+    <com.example.nearby.designsystem.GridBackgroundView
+        android:id="@+id/grid_background_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <ImageView
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:layout_gravity="top|end"
+        android:layout_marginTop="-50dp"
+        android:layout_marginEnd="-50dp"
+        android:alpha="0.2"
+        android:importantForAccessibility="no"
+        android:src="@drawable/bg_wave_top" />
+
+    <!-- MAIN VERTICAL CONTAINER -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <!-- PINNED EMERALD TOOLBAR -->
+        <LinearLayout
+            android:id="@+id/layout_explore_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="76dp"
+            android:background="@color/emerald_600"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingHorizontal="16dp"
+            android:elevation="6dp">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    style="@style/Typography.HeadlineMedium"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Explore"
+                    android:textColor="@color/white"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tv_search_area"
+                    style="@style/Typography.Caption"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Universal Search Engine"
+                    android:textColor="@color/emerald_100" />
+            </LinearLayout>
+
+            <!-- Grid/List View Toggle Button -->
+            <ImageButton
+                android:id="@+id/btn_grid_list_toggle"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginEnd="8dp"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:contentDescription="Toggle view mode"
+                android:src="@drawable/ic_grid"
+                app:tint="@color/white" />
+
+            <!-- Filter trigger icon button -->
+            <ImageButton
+                android:id="@+id/btn_explore_toolbar_filter"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:contentDescription="Open filter drawer"
+                android:src="@drawable/ic_filter"
+                app:tint="@color/white" />
+        </LinearLayout>
+
+        <!-- CONTENT AREA -->
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <!-- MAIN LIST & CONTROLS -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:paddingHorizontal="16dp"
+                android:paddingTop="12dp">
+
+                <!-- FLOATING SEARCH BAR -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="54dp"
+                    android:background="@drawable/bg_input_field"
+                    android:gravity="center_vertical"
+                    android:paddingHorizontal="12dp"
+                    android:elevation="2dp">
+
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:contentDescription="Search"
+                        android:src="@drawable/ic_search"
+                        app:tint="@color/emerald_500" />
+
+                    <EditText
+                        android:id="@+id/et_explore_search"
+                        style="@style/Typography.BodyLarge"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginStart="8dp"
+                        android:layout_weight="1"
+                        android:background="@android:color/transparent"
+                        android:hint="Search destinations, temples, cafes..."
+                        android:inputType="text"
+                        android:textColor="@color/text_primary"
+                        android:textColorHint="@color/text_muted" />
+
+                    <ImageButton
+                        android:id="@+id/btn_explore_voice"
+                        android:layout_width="36dp"
+                        android:layout_height="36dp"
+                        android:background="?attr/selectableItemBackgroundBorderless"
+                        android:contentDescription="Voice search"
+                        android:src="@drawable/ic_voice"
+                        app:tint="@color/text_secondary" />
+                </LinearLayout>
+
+                <!-- APPLIED FILTER CHIPS (Dynamic RecyclerView) -->
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rv_applied_chips"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:orientation="horizontal"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+
+                <!-- CATEGORIES TABS -->
+                <HorizontalScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:scrollbars="none">
+
+                    <LinearLayout
+                        android:id="@+id/explore_categories_container"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal" />
+                </HorizontalScrollView>
+
+                <!-- RESULTS SUB-HEADER -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="14dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/tv_explore_results_title"
+                        style="@style/Typography.HeadlineSmall"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Discover Places"
+                        android:textColor="@color/text_primary" />
+
+                    <TextView
+                        android:id="@+id/tv_explore_results_count"
+                        style="@style/Typography.Caption"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="0 Places Found"
+                        android:textColor="@color/text_secondary" />
+                </LinearLayout>
+
+                <!-- RECYCLERVIEW LIST FOR PAGING -->
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rv_explore_places"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:layout_marginTop="8dp"
+                    android:clipToPadding="false"
+                    android:paddingBottom="100dp"
+                    android:scrollbars="none" />
+            </LinearLayout>
+
+            <!-- LOADING SHIMMER STATE -->
+            <ProgressBar
+                android:id="@+id/progress_explore_loading"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_gravity="center"
+                android:indeterminateTint="@color/emerald_500"
+                android:visibility="gone" />
+
+            <!-- EMPTY RESULTS LAYOUT -->
+            <LinearLayout
+                android:id="@+id/layout_empty_explore"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:padding="24dp"
+                android:visibility="gone">
+
+                <TextView
+                    style="@style/Typography.HeadlineLarge"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="🔍" />
+
+                <TextView
+                    style="@style/Typography.HeadlineMedium"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="No places found"
+                    android:textColor="@color/text_primary" />
+
+                <TextView
+                    style="@style/Typography.BodyMedium"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:text="Try changing your filters or searching another city."
+                    android:textAlignment="center"
+                    android:textColor="@color/text_secondary" />
+            </LinearLayout>
+
+            <!-- ERROR RECOVERY LAYOUT -->
+            <LinearLayout
+                android:id="@+id/layout_error_explore"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:padding="24dp"
+                android:visibility="gone">
+
+                <TextView
+                    style="@style/Typography.HeadlineLarge"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="⚠️" />
+
+                <TextView
+                    style="@style/Typography.HeadlineMedium"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="Failed to load places"
+                    android:textColor="@color/text_primary" />
+
+                <Button
+                    android:id="@+id/btn_retry_explore"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:background="@drawable/bg_button_primary"
+                    android:text="Retry"
+                    android:textColor="@color/white" />
+            </LinearLayout>
+        </FrameLayout>
+    </LinearLayout>
+
+    <!-- LAYER 3: DIM OVERLAY BACKDROP FOR DRAWERS -->
+    <View
+        android:id="@+id/view_dim_overlay"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#99000000"
+        android:visibility="gone" />
+
+    <!-- LAYER 4: CUSTOM ANIMATED BOTTOM FILTER DRAWER -->
+    <FrameLayout
+        android:id="@+id/layout_filter_drawer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:background="@color/bg_surface"
+        android:elevation="16dp"
+        android:padding="20dp"
+        android:visibility="gone">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!-- Pull bar handle -->
+            <View
+                android:layout_width="40dp"
+                android:layout_height="4dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="16dp"
+                android:background="#D1D5DB" />
+
+            <TextView
+                style="@style/Typography.HeadlineMedium"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Filters &amp; Sorting"
+                android:textColor="@color/text_primary"
+                android:textStyle="bold" />
+
+            <!-- Scrollable Filter Content -->
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="320dp"
+                android:layout_marginTop="12dp"
+                android:scrollbars="none">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <!-- SORT BY OPTION -->
+                    <TextView
+                        style="@style/Typography.BodyLarge"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Sort By"
+                        android:textColor="@color/text_primary"
+                        android:textStyle="bold" />
+
+                    <HorizontalScrollView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="6dp"
+                        android:scrollbars="none">
+
+                        <RadioGroup
+                            android:id="@+id/rg_sort_options"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <RadioButton
+                                android:id="@+id/rb_sort_relevance"
+                                style="@style/FilterRadioButton"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="8dp"
+                                android:checked="true"
+                                android:text="Relevance" />
+
+                            <RadioButton
+                                android:id="@+id/rb_sort_nearest"
+                                style="@style/FilterRadioButton"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="8dp"
+                                android:text="Nearest" />
+
+                            <RadioButton
+                                android:id="@+id/rb_sort_rating"
+                                style="@style/FilterRadioButton"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="8dp"
+                                android:text="Highest Rated" />
+
+                            <RadioButton
+                                android:id="@+id/rb_sort_popular"
+                                style="@style/FilterRadioButton"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Most Popular" />
+                        </RadioGroup>
+                    </HorizontalScrollView>
+
+                    <!-- DISTANCE RANGE SLIDER -->
+                    <TextView
+                        style="@style/Typography.BodyLarge"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:text="Distance Range"
+                        android:textColor="@color/text_primary"
+                        android:textStyle="bold" />
+
+                    <HorizontalScrollView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="6dp"
+                        android:scrollbars="none">
+
+                        <RadioGroup
+                            android:id="@+id/rg_distance_filters"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <RadioButton
+                                android:id="@+id/rb_dist_5"
+                                style="@style/FilterRadioButton"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="8dp"
+                                android:text="5 km" />
+
+                            <RadioButton
+                                android:id="@+id/rb_dist_10"
+                                style="@style/FilterRadioButton"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="8dp"
+                                android:text="10 km" />
+
+                            <RadioButton
+                                android:id="@+id/rb_dist_25"
+                                style="@style/FilterRadioButton"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="8dp"
+                                android:text="25 km" />
+
+                            <RadioButton
+                                android:id="@+id/rb_dist_50"
+                                style="@style/FilterRadioButton"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="8dp"
+                                android:text="50 km" />
+
+                            <RadioButton
+                                android:id="@+id/rb_dist_anywhere"
+                                style="@style/FilterRadioButton"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:checked="true"
+                                android:text="Anywhere" />
+                        </RadioGroup>
+                    </HorizontalScrollView>
+
+                    <!-- RATINGS -->
+                    <TextView
+                        style="@style/Typography.BodyLarge"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:text="Minimum Rating"
+                        android:textColor="@color/text_primary"
+                        android:textStyle="bold" />
+
+                    <HorizontalScrollView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="6dp"
+                        android:scrollbars="none">
+
+                        <RadioGroup
+                            android:id="@+id/rg_rating_filters"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <RadioButton
+                                android:id="@+id/rb_rating_any"
+                                style="@style/FilterRadioButton"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="8dp"
+                                android:checked="true"
+                                android:text="Any Rating" />
+
+                            <RadioButton
+                                android:id="@+id/rb_rating_3"
+                                style="@style/FilterRadioButton"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="8dp"
+                                android:text="3+ ★" />
+
+                            <RadioButton
+                                android:id="@+id/rb_rating_4"
+                                style="@style/FilterRadioButton"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="8dp"
+                                android:text="4+ ★" />
+
+                            <RadioButton
+                                android:id="@+id/rb_rating_45"
+                                style="@style/FilterRadioButton"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="4.5+ ★" />
+                        </RadioGroup>
+                    </HorizontalScrollView>
+
+                    <!-- ENTRY FEE -->
+                    <TextView
+                        style="@style/Typography.BodyLarge"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:text="Entry Fee"
+                        android:textColor="@color/text_primary"
+                        android:textStyle="bold" />
+
+                    <HorizontalScrollView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="6dp"
+                        android:scrollbars="none">
+
+                        <RadioGroup
+                            android:id="@+id/rg_fee_filters"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <RadioButton
+                                android:id="@+id/rb_fee_any"
+                                style="@style/FilterRadioButton"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="8dp"
+                                android:checked="true"
+                                android:text="Any Fee" />
+
+                            <RadioButton
+                                android:id="@+id/rb_fee_free"
+                                style="@style/FilterRadioButton"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="8dp"
+                                android:text="Free Only" />
+
+                            <RadioButton
+                                android:id="@+id/rb_fee_paid"
+                                style="@style/FilterRadioButton"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Paid Only" />
+                        </RadioGroup>
+                    </HorizontalScrollView>
+
+                    <!-- CROWD LEVEL -->
+                    <TextView
+                        style="@style/Typography.BodyLarge"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:text="Crowd Level"
+                        android:textColor="@color/text_primary"
+                        android:textStyle="bold" />
+
+                    <HorizontalScrollView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="6dp"
+                        android:scrollbars="none">
+
+                        <RadioGroup
+                            android:id="@+id/rg_crowd_filters"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <RadioButton
+                                android:id="@+id/rb_crowd_any"
+                                style="@style/FilterRadioButton"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="8dp"
+                                android:checked="true"
+                                android:text="Any Crowd" />
+
+                            <RadioButton
+                                android:id="@+id/rb_crowd_quiet"
+                                style="@style/FilterRadioButton"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="8dp"
+                                android:text="Quiet" />
+
+                            <RadioButton
+                                android:id="@+id/rb_crowd_moderate"
+                                style="@style/FilterRadioButton"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="8dp"
+                                android:text="Moderate" />
+
+                            <RadioButton
+                                android:id="@+id/rb_crowd_busy"
+                                style="@style/FilterRadioButton"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Busy" />
+                        </RadioGroup>
+                    </HorizontalScrollView>
+                </LinearLayout>
+            </ScrollView>
+
+            <!-- Action buttons -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/btn_reset_filters"
+                    style="@style/Typography.BodyMedium"
+                    android:layout_width="0dp"
+                    android:layout_height="48dp"
+                    android:layout_marginEnd="10dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/bg_skip_pill"
+                    android:text="Reset"
+                    android:textColor="@color/text_primary" />
+
+                <Button
+                    android:id="@+id/btn_apply_filters"
+                    style="@style/Typography.BodyMedium"
+                    android:layout_width="0dp"
+                    android:layout_height="48dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/bg_button_primary"
+                    android:text="Apply Filters"
+                    android:textColor="@color/white" />
+            </LinearLayout>
+        </LinearLayout>
+    </FrameLayout>
+</FrameLayout>

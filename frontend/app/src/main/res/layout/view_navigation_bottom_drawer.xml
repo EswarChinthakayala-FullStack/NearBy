@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bg_glass_panel"
+    android:elevation="@dimen/shadow_large"
+    android:orientation="vertical"
+    android:paddingHorizontal="@dimen/space_16"
+    android:paddingTop="@dimen/space_12"
+    android:paddingBottom="@dimen/space_20">
+
+    <!-- DRAWER HANDLE -->
+    <View
+        android:id="@+id/drawer_header_handle"
+        android:layout_width="40dp"
+        android:layout_height="4dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="@dimen/space_12"
+        android:background="@drawable/bg_skip_pill" />
+
+    <!-- COLLAPSED HEADER INFO -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tv_drawer_title"
+                style="@style/Typography.HeadlineMedium"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/text_primary"
+                tools:text="Qutub Minar" />
+
+            <TextView
+                android:id="@+id/tv_drawer_category"
+                style="@style/Typography.Caption"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:textColor="@color/emerald_400"
+                tools:text="#HISTORICAL" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="end"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tv_drawer_eta"
+                style="@style/Typography.DisplayLarge"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/emerald_400"
+                tools:text="14 min" />
+
+            <TextView
+                android:id="@+id/tv_drawer_distance"
+                style="@style/Typography.Caption"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/text_secondary"
+                tools:text="(12.9 km) • OSRM Route" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- START GUIDANCE BUTTON -->
+    <com.example.nearby.presentation.auth.widgets.PremiumLoadingButton
+        android:id="@+id/btn_start_guidance"
+        android:layout_width="match_parent"
+        android:layout_height="52dp"
+        android:layout_marginTop="@dimen/space_16"
+        app:buttonText="START NAVIGATION ➔" />
+
+    <!-- EXPANDED CONTAINER (TIMELINE & COVER) -->
+    <LinearLayout
+        android:id="@+id/expanded_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/space_16"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <ImageView
+            android:id="@+id/iv_drawer_cover"
+            android:layout_width="match_parent"
+            android:layout_height="140dp"
+            android:layout_marginBottom="@dimen/space_12"
+            android:scaleType="centerCrop"
+            android:src="@drawable/bg_wave_top" />
+
+        <TextView
+            style="@style/Typography.HeadlineSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/space_8"
+            android:text="Turn-by-Turn Timeline"
+            android:textColor="@color/text_primary" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_route_timeline"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:nestedScrollingEnabled="false" />
+
+    </LinearLayout>
+
+</LinearLayout>

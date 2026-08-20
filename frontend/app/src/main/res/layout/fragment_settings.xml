@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_primary"
+    android:orientation="vertical">
+
+    <!-- TOOLBAR -->
+    <com.example.nearby.designsystem.EmeraldToolbar
+        android:id="@+id/settingsToolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clipToPadding="false"
+        android:padding="20dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!-- SECTION 1: ACCOUNT -->
+            <TextView
+                style="@style/Typography.Caption"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="ACCOUNT &amp; HISTORY"
+                android:textColor="@color/emerald_400"
+                android:textSize="11.5sp"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:id="@+id/containerAccount"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:orientation="vertical">
+
+                <include
+                    android:id="@+id/rowEditProfile"
+                    layout="@layout/item_profile_info_row" />
+
+                <include
+                    android:id="@+id/rowChangePassword"
+                    layout="@layout/item_profile_info_row" />
+
+                <include
+                    android:id="@+id/rowMyTrips"
+                    layout="@layout/item_profile_info_row" />
+
+                <include
+                    android:id="@+id/rowMyReviews"
+                    layout="@layout/item_profile_info_row" />
+            </LinearLayout>
+
+            <!-- SECTION 2: PREFERENCES & APPEARANCE -->
+            <TextView
+                style="@style/Typography.Caption"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="PREFERENCES"
+                android:textColor="@color/emerald_400"
+                android:textSize="11.5sp"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:id="@+id/containerPreferences"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:orientation="vertical">
+
+                <include
+                    android:id="@+id/rowAppearance"
+                    layout="@layout/item_profile_info_row" />
+
+                <include
+                    android:id="@+id/rowNotifications"
+                    layout="@layout/item_profile_info_row" />
+            </LinearLayout>
+
+            <!-- SECTION 3: PRIVACY & SECURITY -->
+            <TextView
+                style="@style/Typography.Caption"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="PRIVACY &amp; SECURITY"
+                android:textColor="@color/emerald_400"
+                android:textSize="11.5sp"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:id="@+id/containerPrivacy"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:orientation="vertical">
+
+                <include
+                    android:id="@+id/rowSecurity"
+                    layout="@layout/item_profile_info_row" />
+
+                <include
+                    android:id="@+id/rowPrivacyPolicy"
+                    layout="@layout/item_profile_info_row" />
+
+                <include
+                    android:id="@+id/rowTermsConditions"
+                    layout="@layout/item_profile_info_row" />
+            </LinearLayout>
+
+            <!-- SECTION 4: LEGAL, SUPPORT & ABOUT -->
+            <TextView
+                style="@style/Typography.Caption"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="SUPPORT &amp; ABOUT"
+                android:textColor="@color/emerald_400"
+                android:textSize="11.5sp"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:id="@+id/containerSupport"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:orientation="vertical">
+
+                <include
+                    android:id="@+id/rowLicenses"
+                    layout="@layout/item_profile_info_row" />
+
+                <include
+                    android:id="@+id/rowHelpSupport"
+                    layout="@layout/item_profile_info_row" />
+
+                <include
+                    android:id="@+id/rowAbout"
+                    layout="@layout/item_profile_info_row" />
+            </LinearLayout>
+
+            <!-- LOGOUT BUTTON -->
+            <TextView
+                android:id="@+id/btnSettingsLogout"
+                style="@style/Typography.Button"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_marginTop="28dp"
+                android:background="@drawable/bg_glass_panel"
+                android:gravity="center"
+                android:text="Log Out of Account  🚪"
+                android:textColor="#EF4444"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+
+            <!-- VERSION INFO FOOTER -->
+            <TextView
+                android:id="@+id/tvSettingsVersionFooter"
+                style="@style/Typography.Caption"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="24dp"
+                android:textColor="@color/text_muted"
+                android:textSize="11.5sp"
+                tools:text="Nearby v2.0.0 (Build 206) • API v1" />
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+</LinearLayout>

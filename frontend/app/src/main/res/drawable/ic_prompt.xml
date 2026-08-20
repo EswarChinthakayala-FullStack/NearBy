@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="24dp"
+    android:height="24dp"
+    android:viewportWidth="24"
+    android:viewportHeight="24">
+    <!-- Speech bubble frame -->
+    <path
+        android:fillColor="#00000000"
+        android:strokeColor="#34D399"
+        android:strokeWidth="1.8"
+        android:strokeLineCap="round"
+        android:strokeLineJoin="round"
+        android:pathData="M20,11A8,8 0,0,1 7.27,16.89L3,18L4.11,13.73A8,8 0,1,1 20,11Z" />
+    <!-- AI Sparkle star inside prompt bubble -->
+    <path
+        android:fillColor="#34D399"
+        android:pathData="M11.5,7L12.36,9.64L15,10.5L12.36,11.36L11.5,14L10.64,11.36L8,10.5L10.64,9.64Z" />
+</vector>

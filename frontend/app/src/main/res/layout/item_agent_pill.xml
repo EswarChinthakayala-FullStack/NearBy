@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bg_agent_pill"
+    android:gravity="center_vertical"
+    android:orientation="horizontal"
+    android:paddingHorizontal="12dp"
+    android:paddingVertical="6dp"
+    android:layout_marginEnd="8dp"
+    android:layout_marginBottom="6dp">
+
+    <!-- Pulsing dot indicator -->
+    <View
+        android:id="@+id/viewAgentDot"
+        android:layout_width="6dp"
+        android:layout_height="6dp"
+        android:background="@drawable/bg_circle_emerald" />
+
+    <TextView
+        android:id="@+id/tvAgentName"
+        style="@style/Typography.Caption"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="6dp"
+        android:textColor="@color/emerald_400"
+        android:textSize="11sp" />
+</LinearLayout>

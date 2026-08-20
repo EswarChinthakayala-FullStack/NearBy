@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:padding="@dimen/space_32">
+
+    <ImageView
+        android:id="@+id/empty_image"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:contentDescription="Empty State Graphic"
+        android:src="@drawable/ic_search" />
+
+    <TextView
+        android:id="@+id/empty_title"
+        style="@style/Typography.HeadlineMedium"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/space_16"
+        android:text="No Results Found"
+        android:textAlignment="center" />
+
+    <TextView
+        android:id="@+id/empty_subtitle"
+        style="@style/Typography.BodyMedium"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/space_8"
+        android:text="We couldn't find anything matching your request."
+        android:textAlignment="center"
+        android:textColor="@color/zinc_500" />
+
+</LinearLayout>

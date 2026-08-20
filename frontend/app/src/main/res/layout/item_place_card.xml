@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/place_card_root"
+    android:layout_width="260dp"
+    android:layout_height="wrap_content"
+    android:layout_marginEnd="@dimen/space_16"
+    android:background="@color/bg_primary"
+    android:orientation="vertical">
+
+    <!-- HERO IMAGE THUMBNAIL WITH FAVORITE BUTTON -->
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="180dp"
+        app:cardCornerRadius="28dp"
+        app:cardElevation="2dp"
+        app:cardBackgroundColor="@color/bg_surface">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/iv_place_thumbnail"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:contentDescription="Place Image"
+                android:scaleType="centerCrop"
+                tools:src="@drawable/bg_wave_top" />
+
+            <!-- GRADIENT OVERLAY -->
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/bg_gradient_overlay" />
+
+            <!-- DISTANCE BADGE -->
+            <TextView
+                android:id="@+id/tv_place_distance"
+                style="@style/Typography.Caption"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="top|start"
+                android:layout_margin="16dp"
+                android:background="@drawable/bg_glass_panel"
+                android:paddingHorizontal="10dp"
+                android:paddingVertical="6dp"
+                android:text="2.4 km"
+                android:textColor="@color/white"
+                android:textStyle="bold" />
+
+            <!-- FAVORITE BUTTON -->
+            <ImageButton
+                android:id="@+id/btn_favorite"
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:layout_gravity="top|end"
+                android:layout_margin="16dp"
+                android:background="@drawable/bg_glass_panel"
+                android:contentDescription="Favorite"
+                android:padding="8dp"
+                android:src="@drawable/ic_heart"
+                app:tint="@color/white" />
+
+            <!-- CATEGORY BADGE -->
+            <TextView
+                android:id="@+id/tv_place_category"
+                style="@style/Typography.Caption"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom|start"
+                android:layout_margin="16dp"
+                android:background="@drawable/bg_glass_panel"
+                android:paddingHorizontal="10dp"
+                android:paddingVertical="6dp"
+                android:text="#HISTORICAL"
+                android:textColor="@color/white"
+                android:textStyle="bold" />
+        </FrameLayout>
+    </androidx.cardview.widget.CardView>
+
+    <!-- CONTENT INFO -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:paddingHorizontal="4dp"
+        android:orientation="vertical">
+
+        <!-- TITLE & RATING ROW -->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/tv_place_name"
+                style="@style/Typography.Title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_toStartOf="@id/layout_rating"
+                android:layout_marginEnd="8dp"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:textColor="@color/text_primary"
+                android:textSize="18sp"
+                tools:text="Taj Mahal" />
+
+            <LinearLayout
+                android:id="@+id/layout_rating"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:gravity="center_vertical"
+                android:background="@drawable/bg_button_secondary"
+                android:paddingHorizontal="8dp"
+                android:paddingVertical="4dp"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="14dp"
+                    android:layout_height="14dp"
+                    android:contentDescription="Rating"
+                    android:src="@drawable/ic_star"
+                    app:tint="@color/emerald_500" />
+
+                <TextView
+                    android:id="@+id/tv_place_rating"
+                    style="@style/Typography.Caption"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    android:textColor="@color/emerald_500"
+                    android:textStyle="bold"
+                    tools:text="4.8" />
+            </LinearLayout>
+        </RelativeLayout>
+
+        <!-- OPEN STATUS -->
+        <TextView
+            android:id="@+id/tv_place_status"
+            style="@style/Typography.Caption"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:textColor="@color/text_secondary"
+            android:textSize="13sp"
+            tools:text="Open Now • Closes 6 PM" />
+    </LinearLayout>
+</LinearLayout>

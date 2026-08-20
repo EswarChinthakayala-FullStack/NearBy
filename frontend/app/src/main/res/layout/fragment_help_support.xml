@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_primary"
+    android:orientation="vertical">
+
+    <!-- TOOLBAR -->
+    <com.example.nearby.designsystem.EmeraldToolbar
+        android:id="@+id/supportToolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clipToPadding="false"
+        android:padding="20dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                style="@style/Typography.Title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Help &amp; Support Center"
+                android:textColor="@color/text_primary"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <TextView
+                style="@style/Typography.BodyMedium"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:layout_marginBottom="20dp"
+                android:text="Find answers to common questions or reach out to our priority travel support team."
+                android:textColor="@color/text_secondary"
+                android:textSize="13sp" />
+
+            <include
+                android:id="@+id/rowFaq"
+                layout="@layout/item_profile_info_row" />
+
+            <include
+                android:id="@+id/rowContactSupport"
+                layout="@layout/item_profile_info_row" />
+
+            <include
+                android:id="@+id/rowReportIssue"
+                layout="@layout/item_profile_info_row" />
+
+            <include
+                android:id="@+id/rowSendFeedback"
+                layout="@layout/item_profile_info_row" />
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+</LinearLayout>

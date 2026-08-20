@@ -1,0 +1,55 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:aapt="http://schemas.android.com/aapt"
+    android:width="100dp"
+    android:height="100dp"
+    android:viewportWidth="100"
+    android:viewportHeight="100">
+
+    <!-- Background Base Container -->
+    <path
+        android:pathData="M20,0H80A20,20 0,0 1,100 20V80A20,20 0,0 1,80 100H20A20,20 0,0 1,0 80V20A20,20 0,0 1,20 0Z"
+        android:fillColor="#09090B" />
+
+    <!-- Outer Orbit Curved Path -->
+    <path
+        android:pathData="M 20,75 Q 35,30 78,22"
+        android:strokeWidth="3.5"
+        android:strokeColor="#10B981"
+        android:strokeLineCap="round" />
+
+    <!-- Radar Outer Ring -->
+    <path
+        android:pathData="M 50,18 A 24,24 0 1,0 50,66 A 24,24 0 1,0 50,18"
+        android:strokeWidth="2"
+        android:strokeColor="#10B981" />
+
+    <!-- Main Map Marker Pin with Emerald Gradient -->
+    <path
+        android:pathData="M 50,15 C 33.4,15 20,28.4 20,45 C 20,66.5 45,88 48.5,91 C 49.4,91.8 50.6,91.8 51.5,91 C 55,88 80,66.5 80,45 C 80,28.4 66.6,15 50,15 Z">
+        <aapt:attr name="android:fillColor">
+            <gradient
+                android:startX="10"
+                android:startY="10"
+                android:endX="90"
+                android:endY="90"
+                android:type="linear">
+                <item android:offset="0.0" android:color="#10B981" />
+                <item android:offset="0.5" android:color="#059669" />
+                <item android:offset="1.0" android:color="#06B6D4" />
+            </gradient>
+        </aapt:attr>
+    </path>
+
+    <!-- Inner Compass Core -->
+    <path
+        android:pathData="M 50,31 A 11,11 0 1,0 50,53 A 11,11 0 1,0 50,31"
+        android:fillColor="#09090B" />
+    <path
+        android:pathData="M 50,36 A 6,6 0 1,0 50,48 A 6,6 0 1,0 50,36"
+        android:fillColor="#F59E0B" />
+
+    <!-- North Direction Tip -->
+    <path
+        android:pathData="M 50,33 L 53,40 L 50,38 L 47,40 Z"
+        android:fillColor="#FAFAFA" />
+</vector>

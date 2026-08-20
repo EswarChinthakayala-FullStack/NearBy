@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/map_root_container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!-- MapLibre Native MapView (FULL BLEED BEHIND SYSTEM BARS) -->
+    <org.maplibre.android.maps.MapView
+        android:id="@+id/map_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <!-- ViewBinding stub to prevent immediateStop NPE -->
+    <View
+        android:id="@+id/immediateStop"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:visibility="gone" />
+
+    <!-- ═══════════════════════════════════════════════ -->
+    <!-- STATE 1: EXPLORE MODE (default) -->
+    <!-- ═══════════════════════════════════════════════ -->
+
+    <!-- TOP: FLOATING SEARCH BAR (Hamburger + Search + Voice + Avatar) -->
+    <include
+        android:id="@+id/inc_search_bar"
+        layout="@layout/view_floating_search_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top"
+        android:layout_marginTop="64dp" />
+
+    <!-- ═══════════════════════════════════════════════ -->
+    <!-- STATE 2: NAVIGATION MODE (hidden by default) -->
+    <!-- ═══════════════════════════════════════════════ -->
+
+    <LinearLayout
+        android:id="@+id/navigation_mode_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top"
+        android:layout_marginTop="64dp"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <!-- PIN-TO-PIN FLOATING ROUTE SEARCH PANEL -->
+        <include
+            android:id="@+id/inc_route_panel"
+            layout="@layout/view_floating_route_panel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <!-- TRANSPORT MODE SELECTOR TABS -->
+        <include
+            android:id="@+id/inc_transport_mode"
+            layout="@layout/view_transport_mode_selector"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/space_8" />
+    </LinearLayout>
+
+    <!-- ═══════════════════════════════════════════════ -->
+    <!-- COMPASS WIDGET (top-left, below search bar) -->
+    <!-- ═══════════════════════════════════════════════ -->
+    <FrameLayout
+        android:id="@+id/compass_widget"
+        android:layout_width="44dp"
+        android:layout_height="44dp"
+        android:layout_gravity="top|start"
+        android:layout_marginStart="@dimen/space_16"
+        android:layout_marginTop="132dp"
+        android:background="@drawable/bg_glass_panel"
+        android:elevation="@dimen/shadow_medium">
+
+        <ImageView
+            android:id="@+id/iv_compass_needle"
+            android:layout_width="28dp"
+            android:layout_height="28dp"
+            android:layout_gravity="center"
+            android:contentDescription="Compass"
+            android:src="@drawable/ic_compass" />
+    </FrameLayout>
+
+    <!-- ═══════════════════════════════════════════════ -->
+    <!-- RIGHT SIDE FLOATING MAP CONTROLS -->
+    <!-- ═══════════════════════════════════════════════ -->
+    <LinearLayout
+        android:id="@+id/map_controls_panel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end|center_vertical"
+        android:layout_marginEnd="@dimen/space_12"
+        android:background="@drawable/bg_glass_panel"
+        android:elevation="@dimen/shadow_medium"
+        android:orientation="vertical"
+        android:padding="6dp">
+
+        <!-- Recenter GPS -->
+        <ImageButton
+            android:id="@+id/btn_recenter"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="Recenter"
+            android:padding="8dp"
+            android:scaleType="centerInside"
+            android:src="@drawable/ic_crosshair" />
+
+        <View
+            android:layout_width="28dp"
+            android:layout_height="1dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginVertical="2dp"
+            android:background="@color/card_border" />
+
+        <!-- Zoom In -->
+        <ImageButton
+            android:id="@+id/btn_zoom_in"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="Zoom In"
+            android:padding="8dp"
+            android:scaleType="centerInside"
+            android:src="@drawable/ic_zoom_in" />
+
+        <View
+            android:layout_width="28dp"
+            android:layout_height="1dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginVertical="2dp"
+            android:background="@color/card_border" />
+
+        <!-- Zoom Out -->
+        <ImageButton
+            android:id="@+id/btn_zoom_out"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="Zoom Out"
+            android:padding="8dp"
+            android:scaleType="centerInside"
+            android:src="@drawable/ic_zoom_out" />
+
+        <View
+            android:layout_width="28dp"
+            android:layout_height="1dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginVertical="2dp"
+            android:background="@color/card_border" />
+
+        <!-- Compass Reset -->
+        <ImageButton
+            android:id="@+id/btn_compass"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="Compass"
+            android:padding="8dp"
+            android:scaleType="centerInside"
+            android:src="@drawable/ic_compass" />
+
+        <View
+            android:layout_width="28dp"
+            android:layout_height="1dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginVertical="2dp"
+            android:background="@color/card_border" />
+
+        <!-- Map Layers -->
+        <ImageButton
+            android:id="@+id/btn_layers"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="Layers"
+            android:padding="8dp"
+            android:scaleType="centerInside"
+            android:src="@drawable/ic_layers" />
+
+        <View
+            android:layout_width="28dp"
+            android:layout_height="1dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginVertical="2dp"
+            android:background="@color/card_border" />
+
+        <!-- Live Traffic -->
+        <ImageButton
+            android:id="@+id/btn_traffic"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="Traffic"
+            android:padding="8dp"
+            android:scaleType="centerInside"
+            android:src="@drawable/ic_traffic" />
+    </LinearLayout>
+
+    <!-- ═══════════════════════════════════════════════ -->
+    <!-- BOTTOM SECTION -->
+    <!-- ═══════════════════════════════════════════════ -->
+    <LinearLayout
+        android:id="@+id/bottom_section_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:layout_marginBottom="24dp"
+        android:orientation="vertical">
+
+        <!-- Route Summary Sheet (Navigation mode, hidden by default) -->
+        <include
+            android:id="@+id/inc_route_summary"
+            layout="@layout/view_route_summary_sheet"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/space_8" />
+
+        <!-- EXPLORE NEARBY + WEATHER ROW (Explore mode) -->
+        <include
+            android:id="@+id/inc_explore_weather"
+            layout="@layout/view_explore_weather_row"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/space_8" />
+
+    </LinearLayout>
+
+    <!-- MAP LAYER SELECTION SHEET (overlay) -->
+    <include
+        android:id="@+id/inc_layer_sheet"
+        layout="@layout/view_map_layer_sheet"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom" />
+
+</FrameLayout>

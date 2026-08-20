@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_primary">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <!-- EMERALD TOOLBAR -->
+        <com.example.nearby.designsystem.EmeraldToolbar
+            android:id="@+id/itineraryEmeraldToolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <!-- SEARCH & FILTER BAR CONTAINER -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingHorizontal="16dp"
+            android:paddingTop="12dp">
+
+            <EditText
+                android:id="@+id/et_itinerary_search"
+                style="@style/Typography.BodyMedium"
+                android:layout_width="0dp"
+                android:layout_height="48dp"
+                android:layout_weight="1"
+                android:background="@drawable/bg_glass_panel"
+                android:hint="Search destinations, prompt, or title..."
+                android:inputType="text"
+                android:paddingHorizontal="16dp"
+                android:textColor="@color/text_primary"
+                android:textColorHint="@color/text_secondary" />
+
+            <!-- FILTER ICON BUTTON WITH ZINC BACKGROUND -->
+            <ImageView
+                android:id="@+id/btn_itinerary_filter"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_marginStart="8dp"
+                android:background="@drawable/bg_filter_icon_zinc"
+                android:contentDescription="Filter"
+                android:padding="12dp"
+                android:src="@drawable/ic_filter"
+                app:tint="@color/emerald_400" />
+        </LinearLayout>
+
+        <!-- RECYCLERVIEW LIST OF ITINERARIES -->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_itineraries"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:clipToPadding="false"
+            android:paddingTop="8dp"
+            android:paddingBottom="100dp" />
+    </LinearLayout>
+
+    <!-- EMPTY STATE -->
+    <LinearLayout
+        android:id="@+id/layout_itinerary_empty"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <ImageView
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:src="@drawable/ic_itinerary"
+            app:tint="@color/emerald_500" />
+
+        <TextView
+            style="@style/Typography.Subtitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="No itineraries yet"
+            android:textColor="@color/text_primary" />
+
+        <TextView
+            style="@style/Typography.BodyMedium"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="Tap '+ Create' to architect your first AI itinerary!"
+            android:textColor="@color/text_secondary" />
+    </LinearLayout>
+
+    <!-- FLOATING ACTION BUTTON (+ CREATE) -->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/fab_create_itinerary"
+        android:layout_width="wrap_content"
+        android:layout_height="52dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="110dp"
+        android:clickable="true"
+        android:focusable="true"
+        app:cardBackgroundColor="@color/emerald_500"
+        app:cardCornerRadius="26dp"
+        app:cardElevation="8dp">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:paddingHorizontal="20dp">
+
+            <TextView
+                style="@style/Typography.Subtitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="+"
+                android:textColor="@color/white"
+                android:textSize="20sp" />
+
+            <TextView
+                style="@style/Typography.Subtitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:text="Create"
+                android:textColor="@color/white" />
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+    <!-- LOADING PROGRESS BAR -->
+    <ProgressBar
+        android:id="@+id/pb_itinerary_loading"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_centerInParent="true"
+        android:indeterminateTint="@color/emerald_500"
+        android:visibility="gone" />
+
+</RelativeLayout>

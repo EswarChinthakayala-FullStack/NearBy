@@ -1,0 +1,50 @@
+[
+  {
+    "library": "Kotlin Standard Library",
+    "version": "2.0.21",
+    "license": "Apache-2.0",
+    "website": "https://kotlinlang.org"
+  },
+  {
+    "library": "AndroidX Jetpack Architecture & Navigation",
+    "version": "2.8.5",
+    "license": "Apache-2.0",
+    "website": "https://developer.android.com/jetpack"
+  },
+  {
+    "library": "Dagger Hilt Dependency Injection",
+    "version": "2.51.1",
+    "license": "Apache-2.0",
+    "website": "https://dagger.dev/hilt"
+  },
+  {
+    "library": "Retrofit 2 & OkHttp 4",
+    "version": "2.11.0 / 4.12.0",
+    "license": "Apache-2.0",
+    "website": "https://square.github.io/retrofit"
+  },
+  {
+    "library": "Coil 3 Image Loader",
+    "version": "3.0.4",
+    "license": "Apache-2.0",
+    "website": "https://coil-kt.github.io/coil"
+  },
+  {
+    "library": "MapLibre Native Android SDK",
+    "version": "11.5.0",
+    "license": "BSD-3-Clause",
+    "website": "https://maplibre.org"
+  },
+  {
+    "library": "FastAPI Async Web Framework",
+    "version": "0.110.0",
+    "license": "MIT",
+    "website": "https://fastapi.tiangolo.com"
+  },
+  {
+    "library": "SQLAlchemy 2 Async ORM",
+    "version": "2.0.28",
+    "license": "MIT",
+    "website": "https://www.sqlalchemy.org"
+  }
+]

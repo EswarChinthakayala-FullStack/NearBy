@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Emerald Palette -->
+    <color name="emerald_50">#ECFDF5</color>
+    <color name="emerald_100">#D1FAE5</color>
+    <color name="emerald_200">#A7F3D0</color>
+    <color name="emerald_300">#6EE7B7</color>
+    <color name="emerald_400">#34D399</color>
+    <color name="emerald_500">#10B981</color>
+    <color name="emerald_600">#059669</color>
+    <color name="emerald_700">#047857</color>
+    <color name="emerald_800">#065F46</color>
+    <color name="emerald_900">#064E3B</color>
+
+    <!-- Zinc Palette -->
+    <color name="zinc_50">#FAFAFA</color>
+    <color name="zinc_100">#F4F4F5</color>
+    <color name="zinc_200">#E4E4E7</color>
+    <color name="zinc_300">#D4D4D8</color>
+    <color name="zinc_400">#A1A1AA</color>
+    <color name="zinc_500">#71717A</color>
+    <color name="zinc_600">#52525B</color>
+    <color name="zinc_700">#3F3F46</color>
+    <color name="zinc_800">#27272A</color>
+    <color name="zinc_900">#18181B</color>
+
+    <!-- Base Neutrals -->
+    <color name="white">#FFFFFF</color>
+    <color name="black">#000000</color>
+
+    <!-- LIGHT MODE SEMANTIC TOKENS -->
+    <color name="bg_primary">@color/zinc_50</color>
+    <color name="bg_surface">@color/white</color>
+    <color name="glass_bg">#EEFFFFFF</color>
+    <color name="card_border">@color/zinc_200</color>
+    <color name="text_primary">@color/zinc_900</color>
+    <color name="text_secondary">@color/zinc_600</color>
+    <color name="text_muted">@color/zinc_400</color>
+    <color name="divider_color">@color/zinc_200</color>
+    <color name="input_bg">@color/zinc_100</color>
+
+    <!-- Status Colors -->
+    <color name="status_success">#10B981</color>
+    <color name="status_warning">#F59E0B</color>
+    <color name="status_danger">#EF4444</color>
+    <color name="status_info">#3B82F6</color>
+    <color name="amber_400">#FBBF24</color>
+    <color name="red_400">#F87171</color>
+
+    <!-- Shadow & Glow Tokens -->
+    <color name="shadow_color">#1A000000</color>
+    <color name="emerald_glow">#4010B981</color>
+</resources>

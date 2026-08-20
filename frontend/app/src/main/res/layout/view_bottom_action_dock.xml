@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/bottom_dock_container"
+    android:layout_width="wrap_content"
+    android:layout_height="56dp"
+    android:layout_gravity="center_horizontal"
+    android:background="@drawable/bg_glass_panel"
+    android:elevation="@dimen/shadow_large"
+    android:gravity="center"
+    android:orientation="horizontal"
+    android:paddingHorizontal="@dimen/space_16">
+
+    <ImageButton
+        android:id="@+id/dock_btn_favorite"
+        android:layout_width="44dp"
+        android:layout_height="44dp"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:contentDescription="Favorites"
+        android:src="@drawable/ic_bookmark" />
+
+    <View
+        android:layout_width="1dp"
+        android:layout_height="24dp"
+        android:layout_marginHorizontal="@dimen/space_8"
+        android:background="@color/card_border" />
+
+    <ImageButton
+        android:id="@+id/dock_btn_nearby"
+        android:layout_width="44dp"
+        android:layout_height="44dp"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:contentDescription="Nearby Places"
+        android:src="@drawable/ic_location" />
+
+    <View
+        android:layout_width="1dp"
+        android:layout_height="24dp"
+        android:layout_marginHorizontal="@dimen/space_8"
+        android:background="@color/card_border" />
+
+    <ImageButton
+        android:id="@+id/dock_btn_route"
+        android:layout_width="44dp"
+        android:layout_height="44dp"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:contentDescription="Route Navigation"
+        android:src="@drawable/ic_route" />
+
+    <View
+        android:layout_width="1dp"
+        android:layout_height="24dp"
+        android:layout_marginHorizontal="@dimen/space_8"
+        android:background="@color/card_border" />
+
+    <ImageButton
+        android:id="@+id/dock_btn_share"
+        android:layout_width="44dp"
+        android:layout_height="44dp"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:contentDescription="Share Location"
+        android:src="@drawable/ic_notification" />
+
+</LinearLayout>

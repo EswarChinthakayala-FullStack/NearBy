@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/ai_nearby_root"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_primary">
+
+    <!-- BACKGROUND GRID PATTERN -->
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:alpha="0.25"
+        android:contentDescription="Grid Pattern"
+        android:scaleType="fitXY"
+        android:src="@drawable/bg_grid_pattern" />
+
+    <!-- MAIN CONTAINER -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <!-- FIXED TOP TOOLBAR (NO ROUNDED CORNERS, UNIFIED STATUS BAR) -->
+        <com.example.nearby.designsystem.EmeraldToolbar
+            android:id="@+id/aiToolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <androidx.core.widget.NestedScrollView
+            android:id="@+id/aiScrollView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:clipToPadding="false"
+            android:paddingBottom="120dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <!-- AI SEARCH CARD -->
+                <com.example.nearby.presentation.ainearby.AiSearchCardView
+                    android:id="@+id/aiSearchCard"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/space_16"
+                    android:layout_marginTop="@dimen/space_16" />
+
+                <!-- SUGGESTED PROMPTS HEADER -->
+                <TextView
+                    style="@style/Typography.Caption"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/space_16"
+                    android:layout_marginTop="@dimen/space_16"
+                    android:text="Suggested Prompts"
+                    android:textColor="@color/text_secondary" />
+
+                <!-- SUGGESTED PROMPT CHIPS RECYCLER VIEW -->
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rvSuggestedPrompts"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/space_8"
+                    android:clipToPadding="false"
+                    android:orientation="horizontal"
+                    android:paddingHorizontal="@dimen/space_16" />
+
+                <!-- ACTIVE AGENTS STATUS SECTION (shown during loading & after results) -->
+                <LinearLayout
+                    android:id="@+id/layoutAgentStatus"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/space_16"
+                    android:layout_marginTop="@dimen/space_12"
+                    android:background="@drawable/bg_glass_panel"
+                    android:orientation="vertical"
+                    android:padding="@dimen/space_12"
+                    android:visibility="gone">
+
+                    <!-- Agent header -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <View
+                            android:id="@+id/viewAgentPulse"
+                            android:layout_width="8dp"
+                            android:layout_height="8dp"
+                            android:background="@drawable/bg_circle_emerald" />
+
+                        <TextView
+                            android:id="@+id/tvAgentStatusLabel"
+                            style="@style/Typography.Caption"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="8dp"
+                            android:textColor="@color/emerald_400"
+                            android:textSize="12sp"
+                            android:textStyle="bold"
+                            tools:text="Powered by 5 AI Agents" />
+                    </LinearLayout>
+
+                    <!-- Current thinking step -->
+                    <TextView
+                        android:id="@+id/tvCurrentThinkingStep"
+                        style="@style/Typography.Caption"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:textColor="@color/text_secondary"
+                        android:textSize="11sp"
+                        android:visibility="gone"
+                        tools:text="🧠 Tourism Recommendation Architect — Ranking places..." />
+
+                    <HorizontalScrollView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:scrollbars="none">
+
+                        <LinearLayout
+                            android:id="@+id/llAgentPills"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal" />
+                    </HorizontalScrollView>
+                </LinearLayout>
+
+                <!-- AI EXPLANATION CARD ("WHY THESE PLACES?") -->
+                <LinearLayout
+                    android:id="@+id/cardAiExplanation"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/space_16"
+                    android:layout_marginTop="@dimen/space_16"
+                    android:background="@drawable/bg_glass_panel"
+                    android:orientation="vertical"
+                    android:padding="@dimen/space_16"
+                    android:visibility="gone">
+
+                    <TextView
+                        style="@style/Typography.Title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="✨ Why these places?"
+                        android:textColor="@color/emerald_400" />
+
+                    <TextView
+                        android:id="@+id/tvAiSummary"
+                        style="@style/Typography.BodyMedium"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="6dp"
+                        android:textColor="@color/white"
+                        tools:text="Based on your live location, travel distance, and ratings, these are the top recommended nearby destinations." />
+                </LinearLayout>
+
+                <!-- AI THINKING LOADING STATE -->
+                <include
+                    android:id="@+id/layoutAiLoading"
+                    layout="@layout/item_ai_loading"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:visibility="gone" />
+
+                <!-- RECOMMENDATIONS HEADER -->
+                <TextView
+                    android:id="@+id/tvRecommendationsHeader"
+                    style="@style/Typography.HeadlineSmall"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/space_16"
+                    android:layout_marginTop="@dimen/space_20"
+                    android:text="Top AI Recommendations"
+                    android:textColor="@color/text_primary"
+                    android:visibility="gone" />
+
+                <!-- AI RECOMMENDATIONS RECYCLER VIEW -->
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rvAiRecommendations"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/space_12"
+                    android:nestedScrollingEnabled="false"
+                    tools:listitem="@layout/item_ai_place" />
+
+            </LinearLayout>
+        </androidx.core.widget.NestedScrollView>
+    </LinearLayout>
+</FrameLayout>

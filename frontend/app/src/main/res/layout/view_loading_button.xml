@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/loading_button_container"
+    android:layout_width="match_parent"
+    android:layout_height="52dp"
+    android:background="@drawable/bg_button_primary"
+    android:elevation="@dimen/shadow_medium"
+    android:foreground="?attr/selectableItemBackground">
+
+    <!-- NORMAL STATE TEXT -->
+    <TextView
+        android:id="@+id/tv_button_text"
+        style="@style/Typography.Button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:singleLine="true"
+        android:text="Sign In  →"
+        android:textColor="@color/white" />
+
+    <!-- LOADING STATE CONTAINER (SPINNER + LOADING TEXT) -->
+    <LinearLayout
+        android:id="@+id/layout_loading_container"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:visibility="gone">
+
+        <ImageView
+            android:id="@+id/iv_radial_spinner"
+            android:layout_width="22dp"
+            android:layout_height="22dp"
+            android:contentDescription="Loading Spinner"
+            android:src="@drawable/ic_radial_spinner" />
+
+        <TextView
+            android:id="@+id/tv_loading_text"
+            style="@style/Typography.Button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/space_8"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:singleLine="true"
+            android:text="Signing In..."
+            android:textColor="@color/white" />
+    </LinearLayout>
+
+    <!-- SUCCESS CHECKMARK ICON -->
+    <ImageView
+        android:id="@+id/iv_success_check"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_gravity="center"
+        android:contentDescription="Success Check"
+        android:src="@drawable/ic_check_circle"
+        android:visibility="gone" />
+
+</FrameLayout>

@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/splash_root"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_screen_gradient">
+
+    <!-- DECORATIVE LAYER 1: Top Right Emerald Wave -->
+    <ImageView
+        android:id="@+id/iv_wave_top"
+        android:layout_width="340dp"
+        android:layout_height="340dp"
+        android:layout_gravity="top|end"
+        android:layout_marginTop="-50dp"
+        android:layout_marginEnd="-50dp"
+        android:contentDescription="Top Right Wave"
+        android:importantForAccessibility="no"
+        android:scaleType="fitXY"
+        android:src="@drawable/bg_wave_top" />
+
+    <!-- DECORATIVE LAYER 2: Bottom Left Emerald Wave -->
+    <ImageView
+        android:id="@+id/iv_wave_bottom"
+        android:layout_width="340dp"
+        android:layout_height="340dp"
+        android:layout_gravity="bottom|start"
+        android:layout_marginStart="-50dp"
+        android:layout_marginBottom="-50dp"
+        android:contentDescription="Bottom Left Wave"
+        android:importantForAccessibility="no"
+        android:scaleType="fitXY"
+        android:src="@drawable/bg_wave_bottom" />
+
+    <!-- CENTER BRANDING CONTAINER -->
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <!-- App Logo -->
+        <ImageView
+            android:id="@+id/iv_splash_logo"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:alpha="0"
+            android:contentDescription="Nearby Logo"
+            android:scaleX="0.8"
+            android:scaleY="0.8"
+            android:src="@drawable/ic_app_logo" />
+
+        <!-- App Name -->
+        <TextView
+            android:id="@+id/tv_splash_title"
+            style="@style/Typography.DisplayXL"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/space_24"
+            android:alpha="0"
+            android:text="@string/app_name"
+            android:textColor="@color/text_primary" />
+
+        <!-- Tagline -->
+        <TextView
+            android:id="@+id/tv_splash_subtitle"
+            style="@style/Typography.Subtitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/space_8"
+            android:alpha="0"
+            android:text="Discover Amazing Places Around You"
+            android:textColor="@color/emerald_500" />
+
+        <!-- Pulsing Compass Loader -->
+        <ImageView
+            android:id="@+id/iv_splash_loader"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:layout_marginTop="@dimen/space_32"
+            android:alpha="0"
+            android:contentDescription="Loading"
+            android:src="@drawable/ic_compass" />
+
+    </LinearLayout>
+
+</FrameLayout>

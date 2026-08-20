@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/gallery_root_container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/black">
+
+    <!-- FULLSCREEN IMAGE VIEWER -->
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/gallery_view_pager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <!-- TOP FLOATING GLASS TOOLBAR -->
+    <LinearLayout
+        android:id="@+id/gallery_top_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="64dp"
+        android:layout_gravity="top"
+        android:background="@drawable/bg_glass_panel"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingHorizontal="@dimen/space_16">
+
+        <ImageButton
+            android:id="@+id/btn_close_gallery"
+            android:layout_width="38dp"
+            android:layout_height="38dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="Close"
+            android:src="@drawable/ic_close" />
+
+        <TextView
+            android:id="@+id/tv_gallery_counter"
+            style="@style/Typography.HeadlineSmall"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/space_12"
+            android:layout_weight="1"
+            android:text="1 / 12"
+            android:textColor="@color/white" />
+
+        <ImageButton
+            android:id="@+id/btn_share_image"
+            android:layout_width="38dp"
+            android:layout_height="38dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="Share"
+            android:src="@drawable/ic_share" />
+    </LinearLayout>
+
+    <!-- BOTTOM THUMBNAIL PREVIEW STRIP -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_bottom_thumbnails"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:layout_gravity="bottom"
+        android:layout_marginBottom="@dimen/space_16"
+        android:clipToPadding="false"
+        android:orientation="horizontal"
+        android:paddingHorizontal="@dimen/space_16" />
+
+</FrameLayout>

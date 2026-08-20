@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Spacing System -->
+    <dimen name="space_2">2dp</dimen>
+    <dimen name="space_4">4dp</dimen>
+    <dimen name="space_6">6dp</dimen>
+    <dimen name="space_8">8dp</dimen>
+    <dimen name="space_10">10dp</dimen>
+    <dimen name="space_12">12dp</dimen>
+    <dimen name="space_16">16dp</dimen>
+    <dimen name="space_20">20dp</dimen>
+    <dimen name="space_24">24dp</dimen>
+    <dimen name="space_32">32dp</dimen>
+    <dimen name="space_40">40dp</dimen>
+    <dimen name="space_48">48dp</dimen>
+    <dimen name="space_64">64dp</dimen>
+
+    <!-- Corner Radius System -->
+    <dimen name="radius_small">6dp</dimen>
+    <dimen name="radius_medium">12dp</dimen>
+    <dimen name="radius_large">18dp</dimen>
+    <dimen name="radius_xlarge">24dp</dimen>
+    <dimen name="radius_circle">999dp</dimen>
+
+    <!-- Elevation / Shadow System -->
+    <dimen name="shadow_small">2dp</dimen>
+    <dimen name="shadow_soft">4dp</dimen>
+    <dimen name="shadow_medium">8dp</dimen>
+    <dimen name="shadow_large">16dp</dimen>
+
+    <!-- UI Component Heights -->
+    <dimen name="button_height">52dp</dimen>
+    <dimen name="input_field_height">54dp</dimen>
+    <dimen name="chip_height">36dp</dimen>
+    <dimen name="toast_height">56dp</dimen>
+</resources>

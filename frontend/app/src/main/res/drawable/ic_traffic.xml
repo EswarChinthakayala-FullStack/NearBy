@@ -1,0 +1,23 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="24dp"
+    android:height="24dp"
+    android:viewportWidth="24"
+    android:viewportHeight="24">
+  <!-- Outer Traffic Light Box -->
+  <path
+      android:pathData="M11,2H13C16,2 17,3 17,6V18C17,21 16,22 13,22H11C8,22 7,21 7,18V6C7,3 8,2 11,2Z"
+      android:strokeWidth="2"
+      android:strokeColor="@color/text_primary"/>
+  <!-- Top Red Light -->
+  <path
+      android:pathData="M12,6m-2,0a2,2 0 1,0 4,0a2,2 0 1,0 -4,0"
+      android:fillColor="#EF4444"/>
+  <!-- Middle Yellow Light -->
+  <path
+      android:pathData="M12,12m-2,0a2,2 0 1,0 4,0a2,2 0 1,0 -4,0"
+      android:fillColor="#F59E0B"/>
+  <!-- Bottom Green Light -->
+  <path
+      android:pathData="M12,18m-2,0a2,2 0 1,0 4,0a2,2 0 1,0 -4,0"
+      android:fillColor="#10B981"/>
+</vector>

@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/toolbar_container"
+    android:layout_width="match_parent"
+    android:layout_height="64dp"
+    android:background="@drawable/bg_premium_toolbar"
+    android:elevation="8dp"
+    android:gravity="center_vertical"
+    android:orientation="horizontal"
+    android:paddingHorizontal="@dimen/space_16">
+
+    <!-- Styled Glassy Back Button -->
+    <ImageButton
+        android:id="@+id/btn_back"
+        android:layout_width="38dp"
+        android:layout_height="38dp"
+        android:background="@drawable/bg_glass_icon_btn"
+        android:contentDescription="Navigate Back"
+        android:padding="8dp"
+        android:scaleType="fitCenter"
+        android:src="@drawable/ic_arrow_back"
+        android:visibility="gone"
+        app:tint="@color/white" />
+
+    <!-- Title & Subtitle Container -->
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/space_12"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tv_title"
+            style="@style/Typography.HeadlineSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tv_subtitle"
+            style="@style/Typography.Caption"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:textColor="@color/emerald_200"
+            android:visibility="gone" />
+    </LinearLayout>
+
+    <!-- Styled Glassy Secondary Action Button -->
+    <ImageButton
+        android:id="@+id/btn_secondary_action"
+        android:layout_width="38dp"
+        android:layout_height="38dp"
+        android:layout_marginEnd="6dp"
+        android:background="@drawable/bg_glass_icon_btn"
+        android:contentDescription="Secondary Action"
+        android:padding="8dp"
+        android:scaleType="fitCenter"
+        android:src="@drawable/ic_share"
+        android:visibility="gone"
+        app:tint="@color/white" />
+
+    <!-- Styled Glassy Primary Action Button -->
+    <ImageButton
+        android:id="@+id/btn_action"
+        android:layout_width="38dp"
+        android:layout_height="38dp"
+        android:background="@drawable/bg_glass_icon_btn"
+        android:contentDescription="Action"
+        android:padding="8dp"
+        android:scaleType="fitCenter"
+        android:src="@drawable/ic_refresh"
+        android:visibility="gone"
+        app:tint="@color/white" />
+
+</LinearLayout>

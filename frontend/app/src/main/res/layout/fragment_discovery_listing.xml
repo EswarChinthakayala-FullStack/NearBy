@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/discovery_root_container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_screen_gradient">
+
+    <!-- Grid pattern background -->
+    <com.example.nearby.designsystem.GridBackgroundView
+        android:id="@+id/grid_background"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <!-- Top Wave Overlay -->
+    <ImageView
+        android:layout_width="340dp"
+        android:layout_height="340dp"
+        android:layout_gravity="top|end"
+        android:layout_marginTop="-60dp"
+        android:layout_marginEnd="-60dp"
+        android:alpha="0.25"
+        android:importantForAccessibility="no"
+        android:scaleType="fitXY"
+        android:src="@drawable/bg_wave_top" />
+
+    <!-- Main Content Container -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <!-- 1. Premium Toolbar -->
+        <include
+            android:id="@+id/layout_premium_toolbar"
+            layout="@layout/view_premium_toolbar" />
+
+        <!-- 2. Search & Filter Bar -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingHorizontal="@dimen/space_16"
+            android:paddingVertical="@dimen/space_8"
+            android:gravity="center_vertical">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:layout_marginEnd="@dimen/space_8"
+                android:layout_weight="1"
+                android:background="@drawable/bg_input_field"
+                android:gravity="center_vertical"
+                android:paddingHorizontal="@dimen/space_12">
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:contentDescription="Search"
+                    android:src="@drawable/ic_search" />
+
+                <EditText
+                    android:id="@+id/et_search_input"
+                    style="@style/Typography.BodyLarge"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="@dimen/space_8"
+                    android:layout_weight="1"
+                    android:background="@android:color/transparent"
+                    android:hint="Search destinations..."
+                    android:inputType="text"
+                    android:textColor="@color/text_primary"
+                    android:textColorHint="@color/text_muted" />
+
+                <ImageButton
+                    android:id="@+id/btn_voice_input"
+                    android:layout_width="36dp"
+                    android:layout_height="36dp"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:contentDescription="Voice Search"
+                    android:src="@drawable/ic_voice" />
+            </LinearLayout>
+
+            <!-- Filter Trigger Frame -->
+            <FrameLayout
+                android:id="@+id/btn_filter_trigger"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:background="@drawable/bg_glass_panel"
+                android:elevation="@dimen/shadow_small">
+
+                <ImageView
+                    android:layout_width="22dp"
+                    android:layout_height="22dp"
+                    android:layout_gravity="center"
+                    android:contentDescription="Filters"
+                    android:src="@drawable/ic_filter" />
+            </FrameLayout>
+        </LinearLayout>
+
+        <!-- 3. Active Filters Chips Horizontal Scroll -->
+        <HorizontalScrollView
+            android:id="@+id/scroll_filter_chips"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingHorizontal="@dimen/space_16"
+            android:paddingVertical="@dimen/space_4"
+            android:scrollbars="none"
+            android:visibility="gone">
+
+            <LinearLayout
+                android:id="@+id/layout_filter_chips_container"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal" />
+        </HorizontalScrollView>
+
+        <!-- 4. Swipe To Refresh & List Container -->
+        <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+            android:id="@+id/swipe_refresh"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1">
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <!-- RecyclerView for items -->
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rv_places_list"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:clipToPadding="false"
+                    android:paddingBottom="96dp"
+                    android:scrollbars="vertical" />
+
+                <!-- Shimmer Loading View Stub -->
+                <include
+                    android:id="@+id/layout_loading"
+                    layout="@layout/view_loading_state"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:visibility="gone" />
+
+                <!-- Empty State View Stub -->
+                <include
+                    android:id="@+id/layout_empty"
+                    layout="@layout/view_empty_state"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:visibility="gone" />
+
+                <!-- Error State View Stub -->
+                <include
+                    android:id="@+id/layout_error"
+                    layout="@layout/view_error_state"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:visibility="gone" />
+
+            </FrameLayout>
+
+        </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+    </LinearLayout>
+
+</FrameLayout>

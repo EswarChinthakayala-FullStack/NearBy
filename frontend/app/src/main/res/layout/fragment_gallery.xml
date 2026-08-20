@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_primary"
+    android:orientation="vertical">
+
+    <!-- PREMIUM EMERALD TOOLBAR MATCHING PLACE DETAIL -->
+    <com.example.nearby.designsystem.EmeraldToolbar
+        android:id="@+id/gallery_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <!-- CONTENT FRAME CONTAINER -->
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <!-- PHOTO RECYCLERVIEW GRID -->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_gallery_grid"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:clipToPadding="false"
+            android:padding="6dp"
+            tools:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+            tools:spanCount="2" />
+
+        <!-- LOADING INDICATOR -->
+        <ProgressBar
+            android:id="@+id/pb_gallery_loading"
+            android:layout_width="56dp"
+            android:layout_height="56dp"
+            android:layout_gravity="center"
+            android:indeterminateTint="@color/emerald_500"
+            android:visibility="gone" />
+
+        <!-- EMPTY STATE CONTAINER -->
+        <LinearLayout
+            android:id="@+id/layout_gallery_empty"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:padding="@dimen/space_32"
+            android:visibility="gone">
+
+            <ImageView
+                android:layout_width="72dp"
+                android:layout_height="72dp"
+                android:contentDescription="No images"
+                android:src="@drawable/ic_layers"
+                app:tint="@color/text_secondary" />
+
+            <TextView
+                style="@style/Typography.HeadlineSmall"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_16"
+                android:text="No images available yet"
+                android:textColor="@color/text_primary" />
+
+            <TextView
+                style="@style/Typography.BodyMedium"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_8"
+                android:text="Tap refresh to re-trigger backend photo discovery."
+                android:textColor="@color/text_secondary" />
+
+            <Button
+                android:id="@+id/btn_retry_gallery"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_16"
+                android:background="@drawable/bg_button_primary"
+                android:paddingHorizontal="@dimen/space_16"
+                android:text="Refresh Gallery"
+                android:textColor="@color/white" />
+        </LinearLayout>
+    </FrameLayout>
+</LinearLayout>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="24dp"
+    android:height="24dp"
+    android:viewportWidth="24"
+    android:viewportHeight="24">
+    <!-- Back card frame -->
+    <path
+        android:fillColor="#00000000"
+        android:strokeColor="#34D399"
+        android:strokeWidth="1.8"
+        android:strokeLineCap="round"
+        android:strokeLineJoin="round"
+        android:pathData="M16,4h2a2,2 0,0,1 2,2v14a2,2 0,0,1 -2,2H8a2,2 0,0,1 -2,-2v-2" />
+    <!-- Front card frame -->
+    <path
+        android:fillColor="#00000000"
+        android:strokeColor="#34D399"
+        android:strokeWidth="1.8"
+        android:strokeLineCap="round"
+        android:strokeLineJoin="round"
+        android:pathData="M6,2H14A2,2 0,0,1 16,4V16A2,2 0,0,1 14,18H6A2,2 0,0,1 4,16V4A2,2 0,0,1 6,2Z" />
+</vector>

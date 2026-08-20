@@ -1,0 +1,466 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/place_detail_root"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_primary"
+    android:orientation="vertical">
+
+    <!-- SOLID PREMIUM TOOLBAR (FIXED AT TOP, NEVER OVERLAPS COVER IMAGE) -->
+    <com.example.nearby.designsystem.EmeraldToolbar
+        android:id="@+id/detailEmeraldToolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <!-- SKELETON SHIMMER LOADING CONTAINER -->
+    <include
+        android:id="@+id/incDetailSkeleton"
+        layout="@layout/view_skeleton_detail_loading"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone" />
+
+    <!-- MAIN SCROLLABLE CONTENT BELOW TOOLBAR -->
+    <ScrollView
+        android:id="@+id/detail_scroll_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clipToPadding="false"
+        android:fillViewport="true"
+        android:nestedScrollingEnabled="true"
+        android:paddingBottom="100dp"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!-- HERO COVER IMAGE CONTAINER (340DP HEIGHT, ROUNDED CORNERS, NO OVERLAP) -->
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="340dp"
+                android:layout_marginHorizontal="@dimen/space_16"
+                android:layout_marginTop="@dimen/space_16"
+                app:cardBackgroundColor="@color/bg_surface"
+                app:cardCornerRadius="24dp"
+                app:cardElevation="8dp">
+
+                <com.example.nearby.presentation.detail.widgets.HeroImageCarousel
+                    android:id="@+id/hero_carousel"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+            </androidx.cardview.widget.CardView>
+
+            <!-- CONTENT BODY CONTAINER -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingHorizontal="@dimen/space_16"
+                android:paddingTop="@dimen/space_16">
+
+                <!-- PLACE TITLE CARD PANEL -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/bg_glass_panel"
+                    android:elevation="@dimen/shadow_medium"
+                    android:orientation="vertical"
+                    android:padding="@dimen/space_20">
+
+                    <!-- CATEGORY BADGE & FAVORITE ACTION ROW -->
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:id="@+id/tv_detail_category"
+                            style="@style/Typography.Caption"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentStart="true"
+                            android:layout_centerVertical="true"
+                            android:background="@drawable/bg_skip_pill"
+                            android:paddingHorizontal="@dimen/space_12"
+                            android:paddingVertical="4dp"
+                            android:textColor="@color/emerald_400"
+                            tools:text="#HISTORICAL" />
+
+                        <ImageButton
+                            android:id="@+id/btnDetailFavorite"
+                            android:layout_width="38dp"
+                            android:layout_height="38dp"
+                            android:layout_alignParentEnd="true"
+                            android:layout_centerVertical="true"
+                            android:background="@drawable/bg_glass_panel"
+                            android:contentDescription="Favorite"
+                            android:padding="8dp"
+                            android:src="@drawable/ic_heart"
+                            app:tint="@color/status_danger" />
+                    </RelativeLayout>
+
+                    <TextView
+                        android:id="@+id/tv_detail_title"
+                        style="@style/Typography.HeadlineLarge"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/space_8"
+                        android:textColor="@color/white"
+                        tools:text="Lotus Temple" />
+
+                    <TextView
+                        android:id="@+id/tv_detail_address"
+                        style="@style/Typography.BodySmall"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/space_4"
+                        android:textColor="@color/text_secondary"
+                        tools:text="Seth Sarai, Mehrauli, New Delhi, Delhi 110030" />
+                </LinearLayout>
+
+                <!-- SCROLLABLE CATEGORY CHIPS ROW -->
+                <TextView
+                    style="@style/Typography.Caption"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/space_16"
+                    android:text="Explore Categories"
+                    android:textColor="@color/text_secondary" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rv_category_chips"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/space_8"
+                    android:clipToPadding="false"
+                    android:orientation="horizontal" />
+
+                <!-- RATING OVERVIEW CARD -->
+                <com.example.nearby.presentation.detail.widgets.RatingOverviewCard
+                    android:id="@+id/card_rating_overview"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/space_16" />
+
+                <!-- KEY INFORMATION GRID CARDS -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/space_16"
+                    android:background="@drawable/bg_glass_panel"
+                    android:orientation="vertical"
+                    android:padding="@dimen/space_16">
+
+                    <!-- ENTRY FEE ITEM -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            style="@style/Typography.Caption"
+                            android:layout_width="120dp"
+                            android:layout_height="wrap_content"
+                            android:text="Entry Fee:"
+                            android:textColor="@color/text_secondary" />
+
+                        <TextView
+                            android:id="@+id/tvDetailEntryFee"
+                            style="@style/Typography.BodyMedium"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:textColor="@color/emerald_400"
+                            tools:text="₹40 (Indian), ₹600 (Foreigner)" />
+                    </LinearLayout>
+
+                    <!-- BEST TIME ITEM -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/space_12"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            style="@style/Typography.Caption"
+                            android:layout_width="120dp"
+                            android:layout_height="wrap_content"
+                            android:text="Best Time to Visit:"
+                            android:textColor="@color/text_secondary" />
+
+                        <TextView
+                            android:id="@+id/tvDetailBestTime"
+                            style="@style/Typography.BodyMedium"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:textColor="@color/white"
+                            tools:text="November to February" />
+                    </LinearLayout>
+
+                    <!-- OPERATING HOURS ITEM -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/space_12"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            style="@style/Typography.Caption"
+                            android:layout_width="120dp"
+                            android:layout_height="wrap_content"
+                            android:text="Opening Hours:"
+                            android:textColor="@color/text_secondary" />
+
+                        <TextView
+                            android:id="@+id/tvDetailHours"
+                            style="@style/Typography.BodyMedium"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:textColor="@color/white"
+                            tools:text="6:00 AM - 6:00 PM (Daily)" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <!-- INTERACTIVE MAPLIBRE SECTION WITH GLASS CONTROLS -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/space_20"
+                    android:background="@drawable/bg_glass_panel"
+                    android:orientation="vertical"
+                    android:padding="@dimen/space_16">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            style="@style/Typography.HeadlineMedium"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Interactive Spatial Map"
+                            android:textColor="@color/text_primary" />
+
+                        <TextView
+                            android:id="@+id/tv_route_info_badge"
+                            style="@style/Typography.Caption"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/bg_skip_pill"
+                            android:paddingHorizontal="10dp"
+                            android:paddingVertical="4dp"
+                            android:textColor="@color/emerald_400"
+                            tools:text="OSRM 24 min • 14.2 km" />
+                    </LinearLayout>
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="240dp"
+                        android:layout_marginTop="@dimen/space_12">
+
+                        <org.maplibre.android.maps.MapView
+                            android:id="@+id/detailMapView"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent" />
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentEnd="true"
+                            android:layout_alignParentTop="true"
+                            android:layout_margin="12dp"
+                            android:orientation="vertical">
+
+                            <ImageButton
+                                android:id="@+id/btn_map_zoom_in"
+                                android:layout_width="36dp"
+                                android:layout_height="36dp"
+                                android:background="@drawable/bg_glass_panel"
+                                android:contentDescription="Zoom In"
+                                android:src="@drawable/ic_zoom_in"
+                                app:tint="@color/emerald_400" />
+
+                            <ImageButton
+                                android:id="@+id/btn_map_zoom_out"
+                                android:layout_width="36dp"
+                                android:layout_height="36dp"
+                                android:layout_marginTop="6dp"
+                                android:background="@drawable/bg_glass_panel"
+                                android:contentDescription="Zoom Out"
+                                android:src="@drawable/ic_zoom_out"
+                                app:tint="@color/emerald_400" />
+                        </LinearLayout>
+                    </RelativeLayout>
+
+                    <Button
+                        android:id="@+id/btn_get_directions"
+                        style="@style/Typography.Button"
+                        android:layout_width="match_parent"
+                        android:layout_height="52dp"
+                        android:layout_marginTop="@dimen/space_12"
+                        android:background="@drawable/bg_button_primary"
+                        android:text="Get Driving Directions &amp; Radar  🗺️"
+                        android:textColor="@color/white" />
+                </LinearLayout>
+
+                <!-- GALLERY PREVIEW HORIZONTAL -->
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/space_20">
+
+                    <TextView
+                        style="@style/Typography.HeadlineMedium"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:layout_centerVertical="true"
+                        android:text="Gallery Preview"
+                        android:textColor="@color/text_primary" />
+
+                    <TextView
+                        android:id="@+id/btn_view_all_gallery"
+                        style="@style/Typography.Caption"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"
+                        android:background="@drawable/bg_skip_pill"
+                        android:paddingHorizontal="@dimen/space_12"
+                        android:paddingVertical="4dp"
+                        android:text="+ View All ➔"
+                        android:textColor="@color/emerald_400" />
+                </RelativeLayout>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rv_gallery_preview"
+                    android:layout_width="match_parent"
+                    android:layout_height="90dp"
+                    android:layout_marginTop="@dimen/space_8"
+                    android:clipToPadding="false"
+                    android:orientation="horizontal" />
+
+                <!-- OVERVIEW & DETAILS SECTION -->
+                <TextView
+                    style="@style/Typography.HeadlineMedium"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/space_20"
+                    android:text="Overview &amp; Details"
+                    android:textColor="@color/text_primary" />
+
+                <com.example.nearby.presentation.detail.widgets.ExpandableDescriptionView
+                    android:id="@+id/view_description"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/space_8"
+                    android:background="@drawable/bg_glass_panel"
+                    android:padding="@dimen/space_16" />
+
+                <!-- WIKIPEDIA HISTORICAL BACKGROUND SECTION -->
+                <TextView
+                    style="@style/Typography.HeadlineMedium"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/space_20"
+                    android:text="Historical &amp; Cultural Background"
+                    android:textColor="@color/text_primary" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/space_8"
+                    android:background="@drawable/bg_glass_panel"
+                    android:orientation="vertical"
+                    android:padding="@dimen/space_16">
+
+                    <TextView
+                        android:id="@+id/tvWikipediaHistory"
+                        style="@style/Typography.BodyMedium"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/text_secondary"
+                        tools:text="The Qutb Minar complex contains 399 steps and was built between 1199 and 1220 as a UNESCO World Heritage victory tower." />
+                </LinearLayout>
+
+                <!-- FACILITIES & AMENITIES -->
+                <TextView
+                    style="@style/Typography.HeadlineMedium"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/space_20"
+                    android:text="Facilities &amp; Amenities"
+                    android:textColor="@color/text_primary" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rv_facilities"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/space_8"
+                    android:clipToPadding="false"
+                    android:orientation="horizontal" />
+
+                <!-- REVIEWS SECTION -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/space_20"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        style="@style/Typography.HeadlineMedium"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Traveler Reviews"
+                        android:textColor="@color/text_primary" />
+
+                    <TextView
+                        android:id="@+id/btn_write_review"
+                        style="@style/Typography.Button"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="+ Write Review"
+                        android:textColor="@color/emerald_500" />
+                </LinearLayout>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rv_reviews"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/space_8"
+                    android:nestedScrollingEnabled="false" />
+
+                <!-- NEARBY DESTINATIONS CAROUSEL -->
+                <TextView
+                    style="@style/Typography.HeadlineMedium"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/space_20"
+                    android:text="Nearby Destinations"
+                    android:textColor="@color/text_primary" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rv_nearby_places"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/space_8"
+                    android:clipToPadding="false"
+                    android:orientation="horizontal" />
+
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

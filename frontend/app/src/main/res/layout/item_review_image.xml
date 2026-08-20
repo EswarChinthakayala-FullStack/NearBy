@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="84dp"
+    android:layout_height="84dp"
+    android:layout_marginEnd="8dp">
+
+    <ImageView
+        android:id="@+id/ivReviewPhoto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        tools:src="@drawable/bg_grid_pattern" />
+
+    <!-- OVERFLOW OVERLAY (+N) -->
+    <TextView
+        android:id="@+id/tvMoreOverlay"
+        style="@style/Typography.Title"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#A60F172A"
+        android:gravity="center"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:visibility="gone"
+        tools:text="+3"
+        tools:visibility="visible" />
+
+</FrameLayout>

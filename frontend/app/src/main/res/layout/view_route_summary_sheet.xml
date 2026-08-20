@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/route_summary_sheet_container"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginHorizontal="@dimen/space_16"
+    android:background="@drawable/bg_glass_panel"
+    android:elevation="@dimen/shadow_large"
+    android:orientation="vertical"
+    android:padding="@dimen/space_16"
+    android:visibility="gone">
+
+    <!-- DESTINATION NAME -->
+    <TextView
+        android:id="@+id/tv_route_destination_name"
+        style="@style/Typography.HeadlineSmall"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:text="Emerald Coastline Resort"
+        android:textColor="@color/text_primary" />
+
+    <!-- ETA & DISTANCE ROW -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/space_8"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <!-- ETA -->
+        <TextView
+            android:id="@+id/tv_route_eta"
+            style="@style/Typography.DisplayLarge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="18 min"
+            android:textColor="@color/emerald_500" />
+
+        <!-- Distance & Route Type -->
+        <TextView
+            android:id="@+id/tv_route_distance"
+            style="@style/Typography.BodyLarge"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/space_12"
+            android:layout_weight="1"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:text="(12.4 km) • Fastest Route"
+            android:textColor="@color/text_secondary" />
+    </LinearLayout>
+
+    <!-- DIVIDER -->
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginVertical="@dimen/space_12"
+        android:background="@color/card_border" />
+
+    <!-- ROUTE OPTIONS ROW -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/space_12"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <TextView
+            style="@style/Typography.Caption"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="🛣 Via Highway"
+            android:textColor="@color/text_secondary" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_weight="1" />
+
+        <TextView
+            style="@style/Typography.Caption"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="⏰ Arrive 10:45 AM"
+            android:textColor="@color/text_secondary" />
+    </LinearLayout>
+
+    <!-- START NAVIGATION CTA BUTTON -->
+    <Button
+        android:id="@+id/btn_start_navigation"
+        style="@style/Typography.Button"
+        android:layout_width="match_parent"
+        android:layout_height="52dp"
+        android:background="@drawable/bg_button_primary"
+        android:elevation="@dimen/shadow_medium"
+        android:text="Start Navigation  →"
+        android:textColor="@color/white" />
+
+</LinearLayout>

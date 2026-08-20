@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/filter_chip_container"
+    android:layout_width="wrap_content"
+    android:layout_height="32dp"
+    android:layout_marginEnd="@dimen/space_6"
+    android:background="@drawable/bg_chip"
+    android:gravity="center"
+    android:orientation="horizontal"
+    android:paddingHorizontal="@dimen/space_10">
+
+    <TextView
+        android:id="@+id/tv_filter_label"
+        style="@style/Typography.Caption"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Filter"
+        android:textColor="@color/emerald_500" />
+
+    <ImageView
+        android:id="@+id/btn_remove_chip"
+        android:layout_width="14dp"
+        android:layout_height="14dp"
+        android:layout_marginStart="@dimen/space_4"
+        android:contentDescription="Remove Filter"
+        android:src="@drawable/ic_clear" />
+</LinearLayout>

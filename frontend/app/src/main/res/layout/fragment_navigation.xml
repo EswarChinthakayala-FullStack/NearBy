@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation_root_container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_primary">
+
+    <!-- FULL SCREEN MAPLIBRE MAP -->
+    <org.maplibre.android.maps.MapView
+        android:id="@+id/navigationMapView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <!-- TOP GLASS TOOLBAR -->
+    <com.example.nearby.designsystem.EmeraldToolbar
+        android:id="@+id/nav_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top" />
+
+    <!-- FLOATING MAP CONTROLS -->
+    <LinearLayout
+        android:id="@+id/nav_controls_container"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end|center_vertical"
+        android:layout_marginEnd="@dimen/space_16"
+        android:background="@drawable/bg_glass_panel"
+        android:elevation="@dimen/shadow_medium"
+        android:orientation="vertical"
+        android:padding="6dp">
+
+        <ImageButton
+            android:id="@+id/btn_nav_locate_me"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="Locate Me"
+            android:src="@drawable/ic_my_location"
+            app:tint="@color/emerald_400" />
+
+        <ImageButton
+            android:id="@+id/btn_nav_zoom_in"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="4dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="Zoom In"
+            android:src="@drawable/ic_zoom_in"
+            app:tint="@color/emerald_400" />
+
+        <ImageButton
+            android:id="@+id/btn_nav_zoom_out"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="4dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="Zoom Out"
+            android:src="@drawable/ic_zoom_out"
+            app:tint="@color/emerald_400" />
+
+        <ImageButton
+            android:id="@+id/btn_nav_compass"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="4dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="Compass"
+            android:src="@drawable/ic_compass"
+            app:tint="@color/emerald_400" />
+
+        <ImageButton
+            android:id="@+id/btn_nav_layers"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="4dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="Layers"
+            android:src="@drawable/ic_layers"
+            app:tint="@color/emerald_400" />
+    </LinearLayout>
+
+    <!-- BOTTOM EXPANDABLE NAVIGATION DRAWER -->
+    <com.example.nearby.presentation.navigation.NavigationBottomDrawer
+        android:id="@+id/navigation_drawer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom" />
+
+    <!-- FULL SCREEN PREVIEWS & ROUTE LOADING OVERLAY -->
+    <LinearLayout
+        android:id="@+id/layout_nav_loading_overlay"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#DD09090B"
+        android:clickable="true"
+        android:focusable="true"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="@dimen/space_24"
+        android:visibility="visible">
+
+        <ProgressBar
+            android:id="@+id/pb_nav_loader"
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            android:indeterminateTint="@color/emerald_500" />
+
+        <TextView
+            android:id="@+id/tv_nav_loading_message"
+            style="@style/Typography.HeadlineMedium"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/space_16"
+            android:textColor="@color/white"
+            tools:text="Preparing your route..." />
+
+        <TextView
+            android:id="@+id/tv_nav_loading_subtext"
+            style="@style/Typography.Caption"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/space_8"
+            android:text="Locking GPS fix &amp; fetching OSRM navigation data..."
+            android:textColor="@color/emerald_400" />
+
+    </LinearLayout>
+
+</FrameLayout>

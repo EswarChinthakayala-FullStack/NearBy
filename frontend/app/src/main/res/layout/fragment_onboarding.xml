@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_screen_gradient">
+
+    <!-- DECORATIVE LAYER 1: Top Right Emerald Wave -->
+    <ImageView
+        android:layout_width="340dp"
+        android:layout_height="340dp"
+        android:layout_gravity="top|end"
+        android:layout_marginTop="-50dp"
+        android:layout_marginEnd="-50dp"
+        android:contentDescription="Top Right Wave"
+        android:importantForAccessibility="no"
+        android:scaleType="fitXY"
+        android:src="@drawable/bg_wave_top" />
+
+    <!-- DECORATIVE LAYER 2: Bottom Left Emerald Wave -->
+    <ImageView
+        android:layout_width="340dp"
+        android:layout_height="340dp"
+        android:layout_gravity="bottom|start"
+        android:layout_marginStart="-50dp"
+        android:layout_marginBottom="-50dp"
+        android:contentDescription="Bottom Left Wave"
+        android:importantForAccessibility="no"
+        android:scaleType="fitXY"
+        android:src="@drawable/bg_wave_bottom" />
+
+    <!-- TOP FLOATING SKIP PILL BUTTON (Top Right) -->
+    <Button
+        android:id="@+id/btn_skip"
+        style="@style/Typography.Button"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:layout_gravity="top|end"
+        android:layout_marginTop="50dp"
+        android:layout_marginEnd="@dimen/space_20"
+        android:background="@drawable/bg_skip_pill"
+        android:elevation="@dimen/shadow_small"
+        android:paddingHorizontal="@dimen/space_16"
+        android:text="Skip  →"
+        android:textColor="@color/emerald_500" />
+
+    <!-- VIEWPAGER2 CONTAINER -->
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/view_pager_onboarding"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="125dp" />
+
+    <!-- FLOATING GLASS NAVIGATION DOCK CONTAINER -->
+    <LinearLayout
+        android:id="@+id/navigation_dock"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:layout_marginHorizontal="@dimen/space_16"
+        android:layout_marginBottom="36dp"
+        android:background="@drawable/bg_glass_panel"
+        android:elevation="@dimen/shadow_large"
+        android:gravity="center_vertical"
+        android:orientation="vertical"
+        android:padding="@dimen/space_16">
+
+        <!-- ANIMATED DOT INDICATOR STACK -->
+        <LinearLayout
+            android:id="@+id/dots_container"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="@dimen/space_16"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <View
+                android:id="@+id/dot_0"
+                android:layout_width="28dp"
+                android:layout_height="8dp"
+                android:layout_marginHorizontal="4dp"
+                android:background="@drawable/bg_button_primary" />
+
+            <View
+                android:id="@+id/dot_1"
+                android:layout_width="8dp"
+                android:layout_height="8dp"
+                android:layout_marginHorizontal="4dp"
+                android:background="@color/zinc_300" />
+
+            <View
+                android:id="@+id/dot_2"
+                android:layout_width="8dp"
+                android:layout_height="8dp"
+                android:layout_marginHorizontal="4dp"
+                android:background="@color/zinc_300" />
+
+        </LinearLayout>
+
+        <!-- NAVIGATION ACTION BUTTONS (Responsive Layout) -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <!-- ← Previous Ghost Button -->
+            <Button
+                android:id="@+id/btn_prev"
+                style="@style/Typography.Button"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginEnd="@dimen/space_8"
+                android:layout_weight="1"
+                android:background="@drawable/bg_button_ghost"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:paddingHorizontal="@dimen/space_8"
+                android:text="←  Previous"
+                android:textColor="@color/text_primary"
+                android:visibility="gone" />
+
+            <!-- Next → Primary Button -->
+            <Button
+                android:id="@+id/btn_next"
+                style="@style/Typography.Button"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginStart="@dimen/space_8"
+                android:layout_weight="1.2"
+                android:background="@drawable/bg_button_primary"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:paddingHorizontal="@dimen/space_8"
+                android:text="Next  →"
+                android:textColor="@color/white" />
+
+            <!-- Get Started → Full-Width CTA Button -->
+            <Button
+                android:id="@+id/btn_get_started"
+                style="@style/Typography.Button"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginStart="@dimen/space_8"
+                android:layout_weight="1.4"
+                android:background="@drawable/bg_button_primary"
+                android:elevation="@dimen/shadow_medium"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:paddingHorizontal="@dimen/space_8"
+                android:text="Get Started  →"
+                android:textColor="@color/white"
+                android:visibility="gone" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</FrameLayout>

@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/explore_weather_row"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginHorizontal="@dimen/space_16"
+    android:gravity="center_vertical"
+    android:orientation="horizontal">
+
+    <!-- EXPLORE NEARBY FLOATING PILL -->
+    <LinearLayout
+        android:id="@+id/btn_explore_nearby"
+        android:layout_width="wrap_content"
+        android:layout_height="42dp"
+        android:background="@drawable/bg_glass_panel"
+        android:elevation="@dimen/shadow_medium"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:paddingHorizontal="@dimen/space_16">
+
+        <ImageView
+            android:layout_width="18dp"
+            android:layout_height="18dp"
+            android:contentDescription="Explore"
+            android:src="@drawable/ic_marker_pin" />
+
+        <TextView
+            style="@style/Typography.BodyMedium"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/space_8"
+            android:text="Explore nearby"
+            android:textColor="@color/text_primary" />
+
+        <TextView
+            style="@style/Typography.BodyMedium"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/space_4"
+            android:text="›"
+            android:textColor="@color/text_secondary" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:layout_weight="1" />
+
+    <!-- WEATHER WIDGET FLOATING PILL -->
+    <LinearLayout
+        android:id="@+id/weather_widget"
+        android:layout_width="wrap_content"
+        android:layout_height="42dp"
+        android:background="@drawable/bg_glass_panel"
+        android:elevation="@dimen/shadow_medium"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:paddingHorizontal="@dimen/space_12">
+
+        <TextView
+            style="@style/Typography.BodyMedium"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="☀️"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/tv_weather_temp"
+            style="@style/Typography.BodyMedium"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/space_4"
+            android:text="28°"
+            android:textColor="@color/text_primary" />
+
+        <TextView
+            android:id="@+id/tv_weather_aqi"
+            style="@style/Typography.Caption"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/space_8"
+            android:background="@drawable/bg_button_primary"
+            android:paddingHorizontal="6dp"
+            android:paddingVertical="2dp"
+            android:text="AQI 42"
+            android:textColor="@color/white" />
+
+        <TextView
+            style="@style/Typography.Caption"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/space_4"
+            android:text="›"
+            android:textColor="@color/text_secondary" />
+    </LinearLayout>
+
+</LinearLayout>

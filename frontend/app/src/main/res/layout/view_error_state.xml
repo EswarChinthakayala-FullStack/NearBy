@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:padding="@dimen/space_32">
+
+    <ImageView
+        android:id="@+id/error_image"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:contentDescription="Error State Graphic"
+        android:src="@drawable/ic_close" />
+
+    <TextView
+        android:id="@+id/error_title"
+        style="@style/Typography.HeadlineMedium"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/space_16"
+        android:text="Something Went Wrong"
+        android:textAlignment="center" />
+
+    <TextView
+        android:id="@+id/error_message"
+        style="@style/Typography.BodyMedium"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/space_8"
+        android:text="An error occurred while loading content."
+        android:textAlignment="center"
+        android:textColor="@color/zinc_500" />
+
+    <Button
+        android:id="@+id/btn_retry"
+        style="@style/Typography.Button"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/button_height"
+        android:layout_marginTop="@dimen/space_24"
+        android:background="@drawable/bg_button_primary"
+        android:paddingHorizontal="@dimen/space_32"
+        android:text="Try Again" />
+
+</LinearLayout>
