@@ -1,0 +1,29 @@
+{
+  "name": "nearby-selenium-e2e-tests",
+  "version": "1.0.0",
+  "description": "Enterprise Selenium WebDriver E2E Automation Suite for Nearby Web Frontend Authentication",
+  "main": "tests/login-tests.js",
+  "type": "commonjs",
+  "scripts": {
+    "test": "node tests/login-tests.js",
+    "test:headless": "HEADLESS=true node tests/login-tests.js",
+    "generate:report": "node generate-excel-report.js"
+  },
+  "keywords": [
+    "selenium",
+    "webdriver",
+    "e2e-testing",
+    "quality-assurance",
+    "test-automation",
+    "excel-reporting"
+  ],
+  "author": "Nearby QA Automation Engineering Team",
+  "license": "MIT",
+  "dependencies": {
+    "exceljs": "^4.4.0",
+    "selenium-webdriver": "^4.27.0"
+  },
+  "devDependencies": {
+    "chromedriver": "^133.0.0"
+  }
+}
